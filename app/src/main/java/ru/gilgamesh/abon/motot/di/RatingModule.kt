@@ -7,6 +7,7 @@ import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import ru.gilgamesh.abon.motot.data.api.RatingApi
 import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RatingMotorcycleRepository
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RatingMotorcycleRepositoryImpl
 import javax.inject.Singleton
 
 @Module
@@ -21,6 +22,6 @@ object RatingModule {
     @Provides
     @Singleton
     fun provideRatingMotorcycleRepository(api: RatingApi): RatingMotorcycleRepository {
-        return RatingMotorcycleRepository(api)
+        return RatingMotorcycleRepositoryImpl(api)
     }
 }
