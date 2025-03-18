@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/background_radius_4"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/member_img"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:elevation="1dp"
+            android:src="@drawable/kandinsky_av2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/roboto"
+            android:singleLine="true"
+            android:text="Alex Bon"
+            android:textColor="#CAC4CF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toStartOf="@+id/approve_btn"
+            app:layout_constraintStart_toEndOf="@+id/member_img"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/nickName_text"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="8dp"
+            android:text="bon@alex"
+            android:textColor="#CAC5CA"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/approve_btn"
+            app:layout_constraintStart_toEndOf="@+id/member_img"
+            app:layout_constraintTop_toBottomOf="@+id/name_text" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/approve_btn"
+            style="@style/CompetitionApproveButton"
+            android:layout_width="110dp"
+            android:layout_height="28dp"
+            android:paddingHorizontal="0dp"
+            android:text="@string/lbl_competition_approve_member"
+            android:textFontWeight="600"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/exclude_btn"
+            style="@style/CompetitionExcludeButton"
+            android:layout_width="110dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:paddingHorizontal="0dp"
+            android:text="@string/lbl_competition_approve_exclude"
+            android:textColor="#FF964B"
+            android:textFontWeight="600"
+            android:textSize="8sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/approve_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

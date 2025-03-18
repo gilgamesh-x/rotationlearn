@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/moto_second_btn" />
+            <stroke android:width="0px" android:color="@color/moto_second_btn" />
+            <corners android:radius="6dp" />
+            <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp" />
+        </shape>
+    </item>
+</layer-list>

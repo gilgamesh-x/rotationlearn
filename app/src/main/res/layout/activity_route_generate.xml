@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.bottomNav.route.RouteGenerateActivity">
+
+
+    <WebView
+        android:id="@+id/generateMap"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:elevation="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+    </WebView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/generate_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_fg_complain"
+        android:elevation="2dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="16dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/textView56"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/roboto"
+            android:text="@string/lbl_route_generate_1"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:max="1000"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
+            android:progress="50"
+            android:progressDrawable="@drawable/route_radius_seekbar_style"
+            android:splitTrack="false"
+            android:thumb="@drawable/route_radius_custom_thumb"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView56" />
+
+        <TextView
+            android:id="@+id/selectRadius_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/dynamic_route_generate_1"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/seekBar" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout20"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/selectRadius_tv">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/route_straight_btn"
+                style="@style/SecondButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/moto_select_btn_route_generate2"
+                android:drawableStart="@drawable/icon_route_straight"
+                android:outlineAmbientShadowColor="@android:color/transparent"
+                android:outlineSpotShadowColor="@android:color/transparent"
+                android:text="@string/lbl_route_generate_4"
+                android:textSize="12sp"
+                app:iconPadding="4dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/route_average_btn"
+                style="@style/SecondButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/moto_select_btn_route_generate"
+                android:drawableStart="@drawable/icon_route_average"
+                android:outlineAmbientShadowColor="@android:color/transparent"
+                android:outlineSpotShadowColor="@android:color/transparent"
+                android:text="@string/lbl_route_generate_5"
+                android:textSize="12sp"
+                app:iconPadding="4dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/route_twisty_btn"
+                style="@style/SecondButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/moto_select_btn_route_generate"
+                android:drawableStart="@drawable/icon_route_twisty"
+                android:outlineAmbientShadowColor="@android:color/transparent"
+                android:outlineSpotShadowColor="@android:color/transparent"
+                android:text="@string/lbl_route_generate_6"
+                android:textSize="12sp"
+                app:iconPadding="4dp" />
+        </LinearLayout>
+
+        <CheckBox
+            android:id="@+id/routeDirection_chkBox"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:checked="true"
+            android:text="@string/lbl_route_generate_2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout20" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/generate_btn"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/lbl_route_generate_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/routeDirection_chkBox" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/result_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_fg_complain"
+        android:elevation="2dp"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="28dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/distanceResult_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:background="@drawable/background_radius_4"
+            android:backgroundTint="#413E44"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="@string/dynamic_route_generate_2"
+            android:textColor="#FDF8FD"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/icon_route_points"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/timeResult_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/background_radius_4"
+            android:backgroundTint="#413E44"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="@string/dynamic_route_generate_3"
+            android:textColor="#FDF8FD"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/icon_time"
+            app:layout_constraintStart_toEndOf="@+id/distanceResult_tv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/routeType_textView"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_radius_4"
+            android:backgroundTint="#413E44"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="TextView"
+            android:textColor="#FDF8FD"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/distanceResult_tv" />
+
+        <TextView
+            android:id="@+id/directionResult_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="28dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/background_radius_4"
+            android:backgroundTint="#413E44"
+            android:drawablePadding="4dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_horizontal|center_vertical"
+            android:paddingHorizontal="10dp"
+            android:text="@string/lbl_route_generate_9"
+            android:textColor="#FDF8FD"
+            android:textSize="16sp"
+            app:drawableStartCompat="@drawable/icon_route_direction"
+            app:layout_constraintStart_toEndOf="@+id/routeType_textView"
+            app:layout_constraintTop_toBottomOf="@+id/distanceResult_tv" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/repeat_generate_btn"
+            style="@style/RouteGenerateButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:gravity="center"
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/lbl_route_generate_10"
+            android:textColor="#FF964B"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/icon_refresh_orange"
+            app:iconGravity="textStart"
+            app:iconSize="24dp"
+            app:iconTint="@color/moto_primary_orange"
+            app:layout_constraintEnd_toStartOf="@+id/space"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/routeType_textView" />
+
+        <Space
+            android:id="@+id/space"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/routeType_textView" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/save_route_btn"
+            style="@style/RouteGenerateButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:outlineAmbientShadowColor="@android:color/transparent"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="@string/lbl_route_generate_11"
+            android:textColor="#FF964B"
+            android:textFontWeight="600"
+            android:textSize="14sp"
+            app:backgroundTint="@null"
+            app:icon="@drawable/icon_save"
+            app:iconGravity="textStart"
+            app:iconSize="24dp"
+            app:iconTint="@color/moto_primary_orange"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/space"
+            app:layout_constraintTop_toBottomOf="@+id/routeType_textView" />
+
+        <Button
+            android:id="@+id/start_btn"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/lbl_route_generate_7"
+            android:textFontWeight="600"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repeat_generate_btn" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

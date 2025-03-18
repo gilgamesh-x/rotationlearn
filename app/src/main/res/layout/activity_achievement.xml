@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="8dp"
+    tools:context=".ui.profile.AchievementActivity">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <LinearLayout
+                android:id="@+id/linearLayout21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView60"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbl_achievement_3"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_ach_reg_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_reg_fa"
+                            android:visibility="visible" />
+
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout23"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView61"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbl_achievement_4"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_ach_route_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_route_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_route2_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_route2_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_route3_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_route3_fa"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout22"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView62"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbl_achievement_5"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_ach_subs_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_subs_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_subs2_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_subs2_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_subs3_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_subs3_fa"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout24"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView24_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbl_achievement_6"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_ach_km_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_km_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_km2_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_km2_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_km3_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_km3_fa"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayout25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="18dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView25_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="@string/lbl_achievement_7"
+                    android:textColor="#FFFFFF"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="none"
+                    android:overScrollMode="never">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/icon_ach_event_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_event_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_event2_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_event2_fa"
+                            android:visibility="visible" />
+
+                        <ImageView
+                            android:id="@+id/icon_ach_event3_fa"
+                            android:layout_width="131dp"
+                            android:layout_height="131dp"
+                            android:elevation="1dp"
+                            android:src="@drawable/icon_ach_event3_fa"
+                            android:visibility="visible" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

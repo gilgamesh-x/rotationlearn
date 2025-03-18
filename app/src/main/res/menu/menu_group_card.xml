@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.bottomNav.group.GroupCardActivity">
+    <item
+        android:id="@+id/action_group_mute"
+        android:title="@string/lbl_group_39"
+        android:tooltipText="@string/lbl_group_39" />
+    <item
+        android:id="@+id/action_group_unmute"
+        android:title="@string/lbl_group_40"
+        android:tooltipText="@string/lbl_group_40" />
+    <item
+        android:id="@+id/action_group_add_member"
+        android:title="@string/lbl_group_9"
+        android:tooltipText="@string/lbl_group_9" />
+    <item
+        android:id="@+id/action_group_admin"
+        android:title="@string/lbl_group_28"
+        android:tooltipText="@string/lbl_group_28" />
+    <item
+        android:id="@+id/action_group_edit"
+        android:title="@string/menu_group_2"
+        android:tooltipText="@string/menu_group_2" />
+    <item
+        android:id="@+id/action_group_route"
+        android:title="@string/lbl_group_24"
+        android:tooltipText="@string/lbl_group_24" />
+    <item
+        android:id="@+id/action_group_leave"
+        android:title="@string/menu_group_1"
+        android:tooltipText="@string/menu_group_1" />
+</menu>

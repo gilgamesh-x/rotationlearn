@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/newsfeed_edit"
+        android:icon="@drawable/outline_edit_24_gray"
+        android:title="@string/lbl_edit" />
+
+    <item
+        android:id="@+id/newsfeed_delete"
+        android:icon="@drawable/outline_delete_24"
+        android:title="@string/lbl_delete" />
+</menu>

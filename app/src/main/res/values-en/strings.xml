@@ -1,0 +1,596 @@
+<resources>
+    <string name="app_name">Motohub</string>
+    <string name="app_mail">hubmoto@yandex.ru</string>
+    <string name="default_notification_channel_id">notification_channel</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="title_home">Event</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_find_pair">Find pair</string>
+    <string name="title_profile">Profile</string>
+    <string name="title_registration">Registration</string>
+    <string name="title_select_moto">Enter the name of your motorcycle</string>
+    <string name="title_new_pass">Create a password</string>
+    <string name="title_authorization">Authorization</string>
+    <string name="title_reset_password">Reset password</string>
+    <string name="title_create_route">Creating route</string>
+    <string name="title_group_card">Group</string>
+    <string-array name="lang_list">
+        <item code="EN">English</item>
+        <item code="RU">Russian</item>
+    </string-array>
+    <string name="userLoginHint">Email</string>
+    <string name="userPasswordHint">Password</string>
+    <string name="userRememberText">Remember me</string>
+    <string name="userNickName">Nickname</string>
+    <string name="userBirthDate">birthday</string>
+    <string name="userAge">age</string>
+    <string name="userSex">sex</string>
+    <string name="loginBtnText">Log In</string>
+    <string name="loginBtnText2">Log in without registration</string>
+    <string name="registerBtnText">Registration</string>
+    <string name="saveBtn">Save</string>
+    <string name="sex_list_m">Male</string>
+    <string name="sex_list_f">Female</string>
+    <string-array name="sex_list">
+        <item code="M">Male</item>
+        <item code="F">Female</item>
+    </string-array>
+    <!--    Bottom Navigation-->
+    <string name="nav_event">Event</string>
+    <string name="nav_group">Group</string>
+    <string name="nav_news">Hub</string>
+    <string name="nav_pair">Motopair</string>
+    <string name="nav_route">Route</string>
+    <string name="nav_route_all">All</string>
+    <string name="nav_route_favorite">Favorite</string>
+    <string name="nav_route_my">My</string>
+    <string name="nav_msg">Chat</string>
+    <string name="nav_notification">Notification</string>
+    <string name="nav_road_help">Roadside assistance</string>
+    <string name="nav_tow_truck">Moto tow truck</string>
+    <string name="nav_service">Services</string>
+    <string name="nav_service_wait">A convenient service for finding motorcycle services will soon appear here. If you dont have the strength to wait and you want to use this service or place your motorcycle service, write to us:</string>
+    <string name="nav_competition">Competitions</string>
+    <string name="nav_competition_all">All</string>
+    <string name="nav_competition_member">Member</string>
+    <string name="nav_competition_my">Created</string>
+    <string name="nav_study">Study</string>
+    <string name="nav_study_wait">Soon there will be a convenient service for finding motorcycle schools and places where you can hone your skills. If you dont have the strength to wait and you want to use this service or post your services, write to us:</string>
+    <string name="nav_shops">Shops</string>
+    <string name="nav_shop_wait">A convenient service for finding motorcycle shops will soon appear here. If you dont have the strength to wait and you want to use this service or post your services, write to us:</string>
+    <string name="nav_storage">Winter storage</string>
+    <string name="nav_storage_wait">Soon there will be a convenient service for finding places where you can leave your motorcycles for storage. If you dont have the strength to wait and you want to use this service or post your services, write to us:</string>
+    <string name="nav_subscribe">App subscription</string>
+    <string name="nav_subscribe_wait">Soon there will be an opportunity to get advanced features of the application: remove ads, super likes in dating, additional filters when searching for routes or events. If you cannot wait and you want to use this service, write to us:</string>
+    <string name="nav_setting">Setting</string>
+    <string name="nav_logout">Logout</string>
+    <string name="nav_rating">Rating</string>
+    <string name="nav_rating1">Kilometers</string>
+    <string name="nav_rating2">Motorcycles</string>
+    <string name="nav_feedback">Feedback</string>
+    <!--    Labels-->
+    <string name="lbl_read_more">\nread more</string>
+    <string name="lbl_read_less">less</string>
+    <string name="lbl_yes">OK</string>
+    <string name="lbl_you">You</string>
+    <string name="lbl_you2">you</string>
+    <string name="lbl_owner">Owner</string>
+    <string name="lbl_admin">Administrator</string>
+    <string name="lbl_admin2">Admin</string>
+    <string name="lbl_first_name">First name</string>
+    <string name="lbl_nick_name">Nick name</string>
+    <string name="lbl_sex">Sex</string>
+    <string name="lbl_birth_date">Birth date</string>
+    <string name="lbl_age">Age</string>
+    <string name="lbl_birth">Birthday</string>
+    <string name="lbl_about">About</string>
+    <string name="lbl_about2">Tell us about yourself</string>
+    <string name="lbl_havent_acc">No account?</string>
+    <string name="lbl_restore_code">Enter your login as the email address you used when registering and we will send you a code to reset your password</string>
+    <string name="lbl_restore_code2">Enter the password reset code that we sent to your email address</string>
+    <string name="lbl_moto_brand">Brand</string>
+    <string name="lbl_moto_model">Model</string>
+    <string name="lbl_photo">Photo</string>
+    <string name="lbl_find_nick_name">to search, enter the nickname</string>
+    <string name="lbl_subscribe">Subscribe</string>
+    <string name="lbl_unsubscribe">Unsubscribe</string>
+    <string name="lbl_message">Message</string>
+    <string name="lbl_route_name">Route name</string>
+    <string name="lbl_route_about">Description</string>
+    <string name="lbl_goto_yandex_map">Goto Yandex Maps</string>
+    <string name="lbl_author">Author</string>
+    <string name="lbl_edit">Edit</string>
+    <string name="lbl_add">Add</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="lbl_exclude">Exclude</string>
+    <string name="lbl_delete_confirm">Are you sure you want to delete the route?</string>
+    <string name="lbl_delete_confirm2">Are you sure you want to delete a route point?</string>
+    <string name="lbl_chat_empty">You dont have any messages yet</string>
+    <string name="lbl_notification_empty">You dont have any notifications yet</string>
+    <string name="lbl_create">Create</string>
+    <string name="lbl_dating">Lets get acquainted</string>
+    <string name="lbl_enter_message">Message</string>
+    <string name="lbl_send">send</string>
+    <string name="lbl_send2">Send</string>
+    <string name="lbl_pair_distance"> km away from you</string>
+    <string name="lbl_year_1">years</string>
+    <string name="lbl_year_2">years</string>
+    <string name="lbl_year_3">years</string>
+    <string name="lbl_permission">Permission denied</string>
+    <string name="lbl_permission2">Probably, when you first launched the application, you rejected the request for access to geolocation. Unfortunately, without these accesses, the application will not be able to function correctly. Set the permission to access geolocation in the phone settings.</string>
+    <string name="lbl_select_moto">If you dont have a motorcycle, just skip this</string>
+    <string name="lbl_not_find_pair1">This is not the end!</string>
+    <string name="lbl_not_find_pair2">Our application is constantly updated by active users. You will be able to find more new acquaintances in the near future</string>
+    <string name="lbl_popup_pair_fill_header">Fill out your profile information!</string>
+    <string name="lbl_popup_pair_fill_body">To increase the likelihood of mutual likes, upload your real photo and fill in the information “about yourself” in the profile settings</string>
+    <string name="lbl_popup_pair_goto">Proceed</string>
+    <string name="lbl_complain_header">Why do you want to leave a complaint?</string>
+    <string name="lbl_complain_header2">This is anonymous and will allow you to quickly moderate user content, excluding unacceptable publications.</string>
+    <string name="lbl_complain_comment">Comment</string>
+    <string name="lbl_personal_info">Personal info</string>
+    <string name="lbl_moto_info">Motorcycle info</string>
+    <string name="lbl_need_help_header1">Do you need help?</string>
+    <string name="lbl_need_help_header2">Press and hold the SOS button if you need help from the motorcycle fraternity</string>
+    <string name="lbl_need_help_header3">This feature will help you cope with difficult situations on the roads, but if you are involved in an accident or are seriously injured, contact the rescue service.</string>
+    <string name="lbl_need_help_header4">I want to receive requests for help from other users</string>
+    <string name="lbl_need_help_header5">Rescue Service</string>
+    <string name="lbl_need_help_header6">Use this button in a desperate or dangerous situation</string>
+    <string name="lbl_need_help_header7">Change radius</string>
+    <string name="lbl_need_help_header8">Select the radius within which you are ready to help</string>
+    <string name="lbl_need_help_header9">From 1 km</string>
+    <string name="lbl_need_help_header10">1 km</string>
+    <string name="lbl_need_help_create_1">What happened?</string>
+    <string name="lbl_need_help_create_2">Crash</string>
+    <string name="lbl_need_help_create_3">Does not load</string>
+    <string name="lbl_need_help_create_4">A broken wheel</string>
+    <string name="lbl_need_help_create_5">Benz has registered</string>
+    <string name="lbl_need_help_create_6">Other</string>
+    <string name="lbl_need_help_create_7">Leave your phone number so that you can be contacted</string>
+    <string name="lbl_need_help_card_1">A request for help has been sent</string>
+    <string name="lbl_need_help_card_2">These users responded to your request:</string>
+    <string name="lbl_need_help_card_3">Expect a response</string>
+    <string name="lbl_need_help_enemy_card_1">You have received a request for help</string>
+    <string name="lbl_need_help_enemy_card_2">These users also responded:</string>
+    <string name="lbl_need_help_enemy_card_3">Set a route</string>
+    <string name="lbl_need_help_enemy_card_4">Im moving out</string>
+    <string name="lbl_need_help_enemy_card_5">You have received a request for help from the user </string>
+    <string name="lbl_need_help_enemy_card_6">Contact with </string>
+    <string name="lbl_need_help_enemy_card_7"><b><font fgcolor='#FFFFFF'>What happened: </font></b></string>
+    <string name="lbl_need_help_enemy_card_8"><b><font fgcolor='#FFFFFF'>Comment: </font></b></string>
+    <string name="lbl_need_help_enemy_card_9">So far, you are the only one who is ready to help. Dont wait. Take action!</string>
+    <string name="lbl_need_help_enemy_card_10">The user canceled the request for help. This request is no longer relevant</string>
+    <string name="lbl_about_default">Tell us about yourself by filling in the appropriate field and going to edit your profile</string>
+    <string name="lbl_route_point_name">Name point</string>
+    <string name="lbl_tow_truck_add">Add tow truck</string>
+    <string name="lbl_tow_truck_add2">Point tow truck</string>
+    <string name="lbl_tow_truck_add3">Place</string>
+    <string name="lbl_tow_truck_add4">Loading address…</string>
+    <string name="lbl_tow_truck_add5">Fill in the required information</string>
+    <string name="lbl_tow_truck_add6">Description of the ad</string>
+    <string name="lbl_tow_truck_add7">Car number</string>
+    <string name="lbl_tow_truck_add8">Link to the service</string>
+    <string name="lbl_tow_truck_add9">Works around the clock</string>
+    <string name="lbl_tow_truck_add10">Works on weekends</string>
+    <string name="lbl_tow_truck_add11">A link to Yandex or Avito, where you can see reviews of your service. Other relevant sites are allowed</string>
+    <string name="lbl_tow_truck_add12">We will check your ad and it will be available to all users soon</string>
+    <string name="lbl_tow_truck_detail_1">Description</string>
+    <string name="lbl_tow_truck_detail_2">Contacts</string>
+    <string name="lbl_tow_truck_detail_3">Operating mode</string>
+    <string name="lbl_tow_truck_detail_4">Link to the service</string>
+    <string name="lbl_tow_truck_detail_5">Weekdays</string>
+    <string name="lbl_tow_truck_detail_6">Around the clock, weekdays only</string>
+    <string name="lbl_tow_truck_detail_7">Around the clock, seven days a week</string>
+    <string name="lbl_tow_truck_detail_8">Every day</string>
+    <string name="lbl_tow_truck_detail_9">Filters</string>
+    <string name="lbl_tow_truck_detail_10">Around the clock</string>
+    <string name="lbl_tow_truck_detail_11">On weekends</string>
+    <string name="lbl_tow_truck_detail_12">My</string>
+    <string name="lbl_tow_truck_detail_13">All</string>
+    <string name="lbl_route_load_info">The information is loading, wait…</string>
+    <string name="lbl_route_point_mark">Finish point</string>
+    <string name="lbl_route_point_mark_2">You have passed the point. Congratulations!</string>
+    <string name="lbl_route_point_mark_3">Pull to complete the point</string>
+    <string name="lbl_route_point_mark_4">Get to the point</string>
+    <string name="lbl_route_point_5">Distance to the point \~ %1$d км</string>
+    <string name="lbl_route_point_6">You\'ve reached the point!</string>
+    <string name="lbl_route_point_7">When you get to this point, you can mark it as completed. After completing all the points, the route will be marked as completed in your profile and in the route card</string>
+    <string name="lbl_route_point_8">The coordinates of the point are copied to the buffer</string>
+    <string name="lbl_about_app">About the app</string>
+    <string name="lbl_add_photo">Click to add a photo</string>
+    <string name="lbl_competition_name">Name the competition</string>
+    <string name="lbl_competition_description">Describe the competition</string>
+    <string name="lbl_competition_type">Type of competition</string>
+    <string name="lbl_competition_type2">Type</string>
+    <string name="lbl_competition_datetime">Specify the date of the announcement</string>
+    <string name="lbl_competition_datetime2">Date announcement</string>
+    <string name="lbl_competition_date">Date</string>
+    <string name="lbl_competition_time">Time</string>
+    <string name="lbl_competition_max_member">Specify the number of participants</string>
+    <string name="lbl_competition_pay">Paid participation</string>
+    <string name="lbl_competition_pay_spec">Specify the cost of participation</string>
+    <string name="lbl_competition_pay_cost">Cost</string>
+    <string name="lbl_competition_pay_free">free</string>
+    <string name="lbl_competition_pay_currency">Currency</string>
+    <string name="lbl_competition_location">Location of the event</string>
+    <string name="lbl_competition_finish">Finish the competition</string>
+    <string name="lbl_competition_participant">Participate in the competition</string>
+    <string name="lbl_competition_cancel_participant">Cancel participation</string>
+    <string name="lbl_competition_cancel_participants">participants</string>
+    <string name="lbl_competition_cancel_participants_empty">The profiles of all participants will be displayed here</string>
+    <string name="lbl_competition_approve_member">Accept</string>
+    <string name="lbl_competition_approve_exclude">Reject</string>
+    <string name="lbl_competition_exclude_title">Do you really want to exclude a participant?</string>
+    <string name="lbl_competition_participants">Participants</string>
+    <string name="lbl_competition_participants_number">Number</string>
+    <string name="lbl_competition_participants_place">Place</string>
+    <string name="lbl_competition_participants_placing">Determine the places of participants</string>
+    <string name="lbl_competition_is_finish">The competition is over</string>
+    <string name="lbl_competition_member_number">Specify the participant number</string>
+    <string name="lbl_competition_member_integration">The application for participation has been sent to the organizer. Expect approval</string>
+    <string name="lbl_competition_close_err">At least 4 participants are required to complete the competition</string>
+    <string name="lbl_no_photo">no photo</string>
+    <string name="lbl_no_result">no one was found</string>
+    <string name="lbl_study_add">Add study</string>
+    <string name="lbl_study_add2">Point study</string>
+    <string name="lbl_study_add9">Driving license</string>
+    <string name="lbl_study_add10">Escort on the road</string>
+    <string name="lbl_study_add11">Improving your skills</string>
+    <string name="lbl_study_add12">Emergency courses</string>
+    <string name="lbl_study_add13">Motocross</string>
+    <string name="lbl_study_detail_3">Types training</string>
+    <string name="lbl_verified">Verified</string>
+    <string name="lbl_complain">The complaint has been sent</string>
+    <string name="lbl_enemy_profile_help_write">You will be able to write to the user when he subscribes to you</string>
+    <string name="lbl_route_help_1">All users will see your route after you add at least 2 points, and the automatically calculated route distance will be more than 0 km.</string>
+    <string name="lbl_route_sheet_1">Record route</string>
+    <string name="lbl_route_sheet_2">Create route</string>
+    <string name="lbl_route_sheet_3">Generate route</string>
+    <string name="lbl_route_sheet_4">Track your trip, share it, increase the distance traveled and get achievements</string>
+    <string name="lbl_route_sheet_5">Create interesting routes so that other users can repeat this trip</string>
+    <string name="lbl_route_sheet_6">Quick route generation will give you the opportunity to ride without thinking about the route</string>
+    <string name="lbl_route_generate_1">Route distance</string>
+    <string name="lbl_route_generate_2">Return to the starting point</string>
+    <string name="lbl_route_generate_3">Generate</string>
+    <string name="lbl_route_generate_4">Straight</string>
+    <string name="lbl_route_generate_5">Average</string>
+    <string name="lbl_route_generate_6">Twisty</string>
+    <string name="lbl_route_generate_7">Start</string>
+    <string name="lbl_route_generate_8">Generate new</string>
+    <string name="lbl_route_generate_9">Back and forth</string>
+    <string name="lbl_route_generate_10">Repeat</string>
+    <string name="lbl_route_generate_11">Save</string>
+    <string name="lbl_route_generate_12">Geolocation is not defined</string>
+    <string name="lbl_route_generate_13">There are no points to save</string>
+    <string name="lbl_route_generate_14">Successfully saved to the \"My Routes\" section</string>
+    <string name="lbl_route_generate_15">Generated route</string>
+    <string name="lbl_route_generate_16">Generated point</string>
+    <string name="lbl_route_generate_17">This route has already been saved</string>
+    <string name="lbl_edit_profile_1">Information for a dating profile</string>
+    <string name="lbl_edit_profile_2">The information will be available to all users who see your profile</string>
+    <string name="lbl_edit_profile_3">The information will only be displayed in the dating profile</string>
+    <string name="lbl_edit_profile_4">A few words about yourself</string>
+    <string name="lbl_edit_profile_5">Enable the dating feature</string>
+    <string name="lbl_achievement_1">Achievement</string>
+    <string name="lbl_achievement_2">All</string>
+    <string name="lbl_achievement_3">Registration</string>
+    <string name="lbl_achievement_4">Routes created</string>
+    <string name="lbl_achievement_5">Subscriptions</string>
+    <string name="lbl_achievement_6">Kilometers traveled</string>
+    <string name="lbl_achievement_7">Created events</string>
+    <string name="lbl_route_record_1">Complete the trip</string>
+    <string name="lbl_route_record_2">Start</string>
+    <string name="lbl_route_record_3">Active time</string>
+    <string name="lbl_route_record_4">Average speed</string>
+    <string name="lbl_route_record_5">Distance</string>
+    <string name="lbl_route_record_6">Do you want to publish your route so that other users can see it?</string>
+    <string name="lbl_route_record_7">Publish</string>
+    <string name="lbl_route_record_8">Save</string>
+    <string name="lbl_route_record_9">Do not save</string>
+    <string name="lbl_route_record_10">%1$s km/h</string>
+    <string name="lbl_route_record_11">Route recording</string>
+    <string name="lbl_route_record_12">Why aren`t we going? Let`s go already ;)</string>
+    <string name="lbl_route_record_13">In order for Motohub to record tracks in the background, you need to get permission to access the background geolocation. Otherwise, the track will be recorded only when the application is deployed. Motohub does not transfer your data to third parties and does not use it for advertising purposes (<a href="https://motohub.nordron01.ru/">Privacy policy</a>). Do you want to allow Motohub to access geolocation in the background?</string>
+    <string name="lbl_route_record_14">ACCEPT</string>
+    <string name="lbl_route_record_15">DENY</string>
+    <string name="lbl_route_record_16">Access to background geolocation</string>
+    <string name="lbl_route_record_17">If you select “Do not save”, the distance traveled will still be recorded in the profile and taken into account in the overall rating</string>
+    <string name="lbl_route_record_18">Total time</string>
+    <string name="lbl_route_record_19">Auto pause</string>
+    <string name="lbl_route_edit_1">Route type</string>
+    <string name="lbl_registration_1">You can change your decision in the profile settings</string>
+    <string name="lbl_group_0">Motohub groups are a private space for you and your friends. Choose a route for traveling together. Keep track of where the participants are on the map. Plan the gathering of the group.\n\n You don\'t have any groups yet.Create your own and invite your friends to join it!\nOr hurry up your friends with an invitation</string>
+    <string name="lbl_group_1">Invitation from</string>
+    <string name="lbl_group_2">Approve</string>
+    <string name="lbl_group_3">Group name</string>
+    <string name="lbl_group_4">Description group</string>
+    <string name="lbl_group_5">Are you sure you want to leave the band?</string>
+    <string name="lbl_group_6">You are the creator of the group, and when you leave it, all members will be automatically removed from the group. Are you sure you want to leave the band?</string>
+    <string name="lbl_group_7">OK</string>
+    <string name="lbl_group_8">Cancel</string>
+    <string name="lbl_group_9">Add member</string>
+    <string name="lbl_group_10">Invite member</string>
+    <string name="lbl_group_11">The invitation has been sent</string>
+    <string name="lbl_group_12">Add member</string>
+    <string name="lbl_group_13">Exclude member</string>
+    <string name="lbl_group_14">Group member</string>
+    <string name="lbl_group_15">Rendezvous point</string>
+    <string name="lbl_group_16">Ride</string>
+    <string name="lbl_group_17">Stop tracking</string>
+    <string name="lbl_group_18">This feature will allow the group members to see your position on the map online</string>
+    <string name="lbl_group_19">By stopping tracking, the group members will no longer be able to see your position on the map</string>
+    <string name="lbl_group_20">Riding</string>
+    <string name="lbl_group_21">You share your location with the group members \'%1$s\'</string>
+    <string name="lbl_group_22">You are already sharing your location with members of another group. Do you want to start in this group?\n(Transmission of location data to the previous group will be stopped)</string>
+    <string name="lbl_group_23">Active route</string>
+    <string name="lbl_group_24">Select route</string>
+    <string name="lbl_group_25">To select a route, add it to your favorites or create your own</string>
+    <string name="lbl_group_26">Choose a route for the group</string>
+    <string name="lbl_group_27">List member</string>
+    <string name="lbl_group_28">Administrators</string>
+    <string name="lbl_group_29">Group Administrators</string>
+    <string name="lbl_group_30">You can add admins to help you manage your group</string>
+    <string name="lbl_group_31">Add Admin</string>
+    <string name="lbl_group_32">Meeting</string>
+    <string name="lbl_group_33">Select meeting date</string>
+    <string name="lbl_group_34">Meeting: %1$s</string>
+    <string name="lbl_group_35">Permanent gathering place on the map</string>
+    <string name="lbl_group_36">date: %1$s</string>
+    <string name="lbl_group_37">time: %1$s</string>
+    <string name="lbl_group_38">Meeting: %1$s. More information on the map</string>
+    <string name="lbl_group_39">Mute</string>
+    <string name="lbl_group_40">Unmute</string>
+    <string name="lbl_feedback_1">Feedback</string>
+    <string name="lbl_feedback_2">Do you have an idea? Are you facing a problem? Do you have something to share?\nWrite!\nLet\'s implement the idea, fix the problems, and listen!\nIf you like the app, do not forget to give 5 stars on the market</string>
+    <string name="lbl_feedback_3">Message text</string>
+    <string name="lbl_feedback_4">Thanks for the feedback!</string>
+    <string name="lbl_auth_alert_1">To fully access the application\'s functions, you must register</string>
+    <string name="lbl_auth_alert_2">Registration</string>
+    <string name="lbl_rating_2024">2024</string>
+    <string name="lbl_rating_2025">2025</string>
+    <string name="lbl_rating_1">Brand</string>
+    <string name="lbl_rating_2">Brand + model</string>
+
+    <string name="lbl_news_1">+ %1$d &#8451;</string>
+    <string name="lbl_news_2">- %1$d &#8451;</string>
+    <string name="lbl_news_3">%1$d &#8451;</string>
+    <!--25-30-->
+    <string name="lbl_news_4_1">It\'s hot, but the main thing is not to stand in traffic jams! And do not forget about safety, a motorcycle T-shirt do not save.</string>
+    <string name="lbl_news_4_2">It\'s hot, but the main thing is not to stand in traffic jams! And do not forget about safety, motorcycle shorts do not save.</string>
+    <string name="lbl_news_4_3">It\'s hot, but the main thing is not to stand in traffic jams! And do not forget about safety, motorcycle sleds do not save.</string>
+    <string name="lbl_news_4_4">It\'s hot, but the main thing is not to stand in traffic jams! And do not forget about safety, a motorcycle cap does not save.</string>
+    <!--20-25-->
+    <string name="lbl_news_5_1">Nice warm weather, it\'s time to go for a ride!</string>
+    <!--15-20-->
+    <string name="lbl_news_6_1">Beautiful weather, time to ride! But evening and night can be cool.</string>
+    <!--10-15-->
+    <string name="lbl_news_7_1">We keep warm and ride! It can get quite cool with sunset.</string>
+    <!--5-10-->
+    <string name="lbl_news_8_1">You can ride, but the asphalt is cold. Be careful and choose warmer gear.</string>
+    <!--<5-->
+    <string name="lbl_news_9_1">It\'s too cold to ride. But there is a motocross in this case ;)</string>
+    <string name="lbl_news_9_2">Minus outside the window, which means we ride motocross ;)</string>
+    <string name="lbl_news_9_3">The temperature is below zero, sir, do we have a snowmobile?</string>
+    <string name="lbl_news_9_4">Brrr, it\'s better to stay at home and keep warm.</string>
+    <!--Wind-->
+    <string name="lbl_news_10_1">They promised a breeze. Be careful in open spaces and at high speeds.</string>
+    <string name="lbl_news_10_2">A strong wind was promised. Check the stable position of the bike. And be careful with the covers, they work like a sail, sometimes it\'s better to take them off.</string>
+    <!--Rain-->
+    <string name="lbl_news_11_1">It looks like it\'s going to rain, but who cares in this weather!</string>
+    <string name="lbl_news_11_2">Rain is possible, it\'s not superfluous to bring a raincoat.</string>
+    <string-array name="lbl_news_12_add">
+        <item>Don\'t forget to greet a passing motorcycle brother/sister! But don\'t forget about safety, sometimes it\'s better to focus on the road.</item>
+        <item>You noticed a motorcycle brother/sister on the side of the road, stop and find out if you need help! But do not forget that you need to pull over smoothly, starting braking on asphalt. Sometimes there is a lot of sand on the side of the road and it can be a problem to stop.</item>
+        <item>Row spacing is a topic, but be careful and if you hit someone, have the courage to stop and assess the damage, because everyone has insurance. Sometimes there will be no damage, and there will be no bad opinion about the motorcycle community.</item>
+        <item>500–1000km and clean the chain! Well, after every ride in the rain</item>
+        <item>If you\'re sad, just ride a motorcycle – it will always cheer you up!</item>
+        <item>If you\'re sad, just ride a motorcycle – he always knows how to cheer you up!</item>
+        <item>Do you have any cool advice? Write to us via Feedback on the sidebar</item>
+        <item>Do you know a permanent gathering place for outdoor motorcycle parties? Write to us via Feedback on the sidebar, we will add it to the map.</item>
+    </string-array>
+    <string name="lbl_news_100">Are you sure you want to delete the entry?</string>
+    <string name="lbl_news_101">The text of the post</string>
+    <!--    Button-->
+    <string name="btn_logout">Logout</string>
+    <string name="btn_edit_profile">Edit profile</string>
+    <string name="btn_forgot_password">Forgot password?</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_send_code">Send code</string>
+    <string name="btn_change_password">Change password</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_cancel2">Cancel</string>
+    <string name="btn_create">Create</string>
+    <string name="btn_save">Save</string>
+    <!--    HTTP Codes-->
+    <string name="ups" httpcode="404">Ouuuuu…</string>
+    <string name="httpnotinternet" httpcode="404">It seems that you have lost the Internet :( we cannot authorize you without an Internet connection</string>
+    <string name="http404">Our servers are currently undergoing maintenance. Try to come back later</string>
+    <string name="http401" httpcode="401">Login or password wrong</string>
+    <string name="httpall" httpcode="401">An unexpected error occurred, please contact our support or try again later</string>
+    <string name="code3_01" httpcode="400">Email not found</string>
+    <string name="code3_02" httpcode="400">Invalid code specified</string>
+    <!--    Title-->
+    <string name="act_title_registration">Registration</string>
+    <string name="act_title_login">Login</string>
+    <string name="act_title_profile">Profile</string>
+    <string name="act_title_edit_profile">Personal Info</string>
+    <!--    Dynamic-->
+    <string name="dynamic_label_text">%1$s: %2$s</string>
+    <string name="dynamic_slash_text">%1$s\/%2$s</string>
+    <string name="dynamic_count_subscriptions">%1$s\nSubscriptions</string>
+    <string name="dynamic_count_subscribers">%1$s\nSubscribers</string>
+    <string name="dynamic_count_photos">%1$s\nPhotos</string>
+    <string name="dynamic_count_route">%1$s - %2$s\nRoutes</string>
+    <string name="dynamic_count_competition">%1$s - %2$s\nCompetition</string>
+    <string name="dynamic_user_nick_name">\@%1$s</string>
+    <string name="dynamic_pilot_moto">Rider %1$s</string>
+    <string name="dynamic_route_km">\~ %1$s km</string>
+    <string name="dynamic_route_km2">Distance \~ %1$s km</string>
+    <string name="dynamic_route_km2d">Distance \~ %1$d km</string>
+    <string name="dynamic_route_km3">\~ %1$d km</string>
+    <string name="dynamic_route_3">Average speed %1$d км/ч</string>
+    <string name="dynamic_route_4">Active time %02d:%02d:%02d</string>
+    <string name="dynamic_route_5">Total time %02d:%02d:%02d</string>
+    <string name="dynamic_created_dt">Created %1$s</string>
+    <string name="dynamic_author_dog">\@%1$s</string>
+    <string name="dynamic_user_writing">%1$s writing…</string>
+    <string name="dynamic_need_help_card_1"><b><font fgcolor='#FFFFFF'>What happened:</font></b> %1$s</string>
+    <string name="dynamic_need_help_card_2"><b><font fgcolor='#FFFFFF'>Comment:</font></b> %1$s</string>
+    <string name="dynamic_route_end_point_1">The point “%1$s” has been reached!</string>
+    <string name="dynamic_version">Version %1$s</string>
+    <string name="dynamic_route_generate_1">\~ %1$s km</string>
+    <string name="dynamic_route_generate_2">%1$s km</string>
+    <string name="dynamic_route_generate_3">%1$s h %2$s min</string>
+    <string name="dynamic_profile_distance_1">%1$d km</string>
+    <string name="dynamic_profile_distance_2">%1$d km</string>
+    <string name="dynamic_sequence_1">%1$d. </string>
+    <string name="dynamic_lbl_route_record_1">Time: %1$s Distance: %2$s km</string>
+    <string name="dynamic_lbl_route_record_2">Auto pause. Time: %1$s Distance: %2$s km</string>
+    <!--    Validate Msg    -->
+    <string name="vldt_bdate_formate">Fill in the field in the format from the example 01/01/1900</string>
+    <string name="vldt_empty">Field cannot be empty</string>
+    <string name="vldt_email">Please enter a correct email address</string>
+    <string name="vldt_fill_code">Please enter a correct code sending on u email</string>
+    <string name="vldt_fill_pass1">contains Latin characters and numbers</string>
+    <string name="vldt_fill_pass2">more than five symbols</string>
+    <string name="vldt_fill_pass3">contains at least one capital letter</string>
+    <string name="vldt_nickname_exist">The specified nickname is already occupied, please select another one</string>
+    <string name="vldt_create_help_road_1">Choose one of the reasons</string>
+    <string name="vldt_create_help_road_2">When choosing the reason "Other", you need to write a comment</string>
+    <string name="vldt_create_help_road_3">The phone number cannot be empty</string>
+    <string name="vldt_create_truck_1">The phone number cannot be empty</string>
+    <string name="vldt_create_truck_2">The description cannot be empty</string>
+    <string name="vldt_create_truck_3">Tow truck number cannot be empty</string>
+    <string name="vldt_create_truck_4">The link cannot be empty</string>
+    <string name="vldt_registration_1">You must be over 12 years old</string>
+    <string name="vldt_registration_2">Do you believe in rebirth or create an account for future children? :)</string>
+    <!--    ERROR           -->
+    <string name="err_stomp">It seems we have a problem with the messaging service. Your messages will arrive, but at the moment you will not see incoming messages.</string>
+    <string name="err_location_service">It seems that location detection is disabled on your device. To use tracking, you need to enable this service</string>
+    <!--    MENU           -->
+    <string name="menu_complain">Complain</string>
+    <string name="menu_edit">Edit</string>
+    <string name="menu_delete">Delete</string>
+    <string name="menu_clear">Clear</string>
+    <string name="menu_bookmark">Add to favorites</string>
+    <string name="menu_undo_bookmark">Remove from favorites</string>
+    <string name="menu_group_1">Leave group</string>
+    <string name="menu_group_2">Edit</string>
+    <!--    ARRAY           -->
+    <string-array name="array_complain">
+        <item>Fraud</item>
+        <item>Insults</item>
+        <item>Candid image</item>
+        <item>Violence and hostility</item>
+    </string-array>
+    <string-array name="sort_all_route">
+        <item>Popular</item>
+        <item>Nearby</item>
+        <item>New</item>
+    </string-array>
+    <string-array name="sort_my_route">
+        <item>Created</item>
+        <item>Recorded</item>
+    </string-array>
+    <string-array name="sort_all_competition">
+        <item>Recently created</item>
+        <item>Nearest (km)</item>
+        <item>Nearest (start date)</item>
+    </string-array>
+    <string-array name="type_competition">
+        <item>Speedway</item>
+        <item>Motocross</item>
+        <item>Supermoto </item>
+        <item>Enduro</item>
+        <item>Cross-country</item>
+        <item>Enduro-cross</item>
+        <item>Road and circuit racing</item>
+        <item>Motoball</item>
+        <item>Mototrial</item>
+        <item>Road-line racing</item>
+        <item>Skioring</item>
+        <item>Moto gymkhana</item>
+        <item>Record-setting races</item>
+        <item>Motorcycle Freestyle (FMX)</item>
+        <item>Stantrading</item>
+        <item>Trophy raid</item>
+    </string-array>
+    <string-array name="type_competition_code">
+        <item>SPEEDWAY</item>
+        <item>MOTOCROSS</item>
+        <item>SUPERMOTO</item>
+        <item>ENDURO</item>
+        <item>CROSSCOUNTRY</item>
+        <item>ENDUROCROSS</item>
+        <item>CIRCUITRACING</item>
+        <item>MOTOBALL</item>
+        <item>MOTOTRIAL</item>
+        <item>LINERACING</item>
+        <item>SKIORING</item>
+        <item>GYMKHANA</item>
+        <item>RECORDRACES</item>
+        <item>FMX</item>
+        <item>STANTRADING</item>
+        <item>TROPHYRAID</item>
+    </string-array>
+    <string-array name="route_type">
+        <item>Road</item>
+        <item>Enduro</item>
+        <item>Mixed</item>
+        <item>Serpentine</item>
+        <item>Beautiful</item>
+        <item>Together</item>
+        <item>Track</item>
+    </string-array>
+    <string name="route_type_generated">Generated</string>
+    <string-array name="route_type_code">
+        <item>ROAD</item>
+        <item>ENDURO</item>
+        <item>MIXED</item>
+        <item>SERPENTINE</item>
+        <item>BEAUTIFUL</item>
+        <item>TOGETHER</item>
+        <item>TRACK</item>
+    </string-array>
+    <!--    HTML           -->
+    <string name="html_yandex_term"><a href="https://yandex.ru/legal/maps_termsofuse/?lang=en">Yandex.Maps Terms of Use</a></string>
+
+    <!--    LICENCES           -->
+    <string name="lic_1">CircleImageView\nCopyright 2014 - 2020 Henning Dodenhof\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at\n
+\n
+    http://www.apache.org/licenses/LICENSE-2.0\n
+\nUnless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+    <string name="lic_2">ZoomLayout\nCopyright © 2020 Mattia Iavarone\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+\n
+    http://www.apache.org/licenses/LICENSE-2.0\n
+\n
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+    <string name="lic_3">Country Code Picker Library\nCopyright © 2016 Harsh Bhakta\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+\n
+        http://www.apache.org/licenses/LICENSE-2.0\n
+\nUnless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+
+    <!--    IMAGE DESCRIPTION           -->
+    <string name="content_description_verified">Verified user</string>
+</resources>

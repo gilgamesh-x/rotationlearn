@@ -1,0 +1,595 @@
+<resources>
+    <string name="app_name">Motohub</string>
+    <string name="app_mail">hubmoto@yandex.ru</string>
+    <string name="default_notification_channel_id">notification_channel</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <string name="title_home">События</string>
+    <string name="title_dashboard">Тест1</string>
+    <string name="title_find_pair">Найти пару</string>
+    <string name="title_profile">Профиль</string>
+    <string name="title_registration">Регистрация</string>
+    <string name="title_select_moto">Укажите название вашего мотоцикла</string>
+    <string name="title_new_pass">Придумайте пароль</string>
+    <string name="title_authorization">Авторизация</string>
+    <string name="title_reset_password">Сброс пароля</string>
+    <string name="title_create_route">Создание маршрута</string>
+    <string name="title_group_card">Группы</string>
+    <string-array name="lang_list">
+        <item code="EN">Английский</item>
+        <item code="RU">Русский</item>
+    </string-array>
+    <string name="userLoginHint">Email</string>
+    <string name="userPasswordHint">Пароль</string>
+    <string name="userRememberText">Запомнить меня</string>
+    <string name="userNickName">Никнейм</string>
+    <string name="userBirthDate">дата рождения</string>
+    <string name="userAge">возраст</string>
+    <string name="userSex">пол</string>
+    <string name="loginBtnText">Войти</string>
+    <string name="loginBtnText2">Войти без регистрации</string>
+    <string name="registerBtnText">Зарегистрироваться</string>
+    <string name="saveBtn">Сохранить</string>
+    <string name="sex_list_m">Мужской</string>
+    <string name="sex_list_f">Женский</string>
+    <string-array name="sex_list">
+        <item code="M">Мужской</item>
+        <item code="F">Женский</item>
+    </string-array>
+    <!--    Bottom Navigation-->
+    <string name="nav_event">События</string>
+    <string name="nav_group">Группы</string>
+    <string name="nav_news">Хаб</string>
+    <string name="nav_pair">Знакомства</string>
+    <string name="nav_route">Маршруты</string>
+    <string name="nav_route_all">Все</string>
+    <string name="nav_route_favorite">Избранные</string>
+    <string name="nav_route_my">Мои</string>
+    <string name="nav_msg">Чат</string>
+    <string name="nav_notification">Уведомления</string>
+    <string name="nav_road_help">Помощь на дороге</string>
+    <string name="nav_tow_truck">Мотоэвакуатор</string>
+    <string name="nav_service">Сервисы</string>
+    <string name="nav_service_wait">Скоро здесь появится удобный интерфейс поиска мотосервисов. Хотите пользоваться уже сейчас или разместить свои услуги, пишите нам:</string>
+    <string name="nav_competition">Соревнования</string>
+    <string name="nav_competition_all">Все</string>
+    <string name="nav_competition_member">Участвую</string>
+    <string name="nav_competition_my">Созданные</string>
+    <string name="nav_study">Обучение</string>
+    <string name="nav_study_wait">Скоро здесь появится удобный интерфейс поиска мотошкол и мест где можно отточить свое мастерство. Хотите пользоваться уже сейчас или разместить свои услуги, пишите нам:</string>
+    <string name="nav_shops">Магазины</string>
+    <string name="nav_shop_wait">Скоро здесь появится удобный интерфейс поиска мотомагазинов или разборок. Хотите пользоваться уже сейчас или разместить свои услуги, пишите нам:</string>
+    <string name="nav_storage">Зимнее хранение</string>
+    <string name="nav_storage_wait">Скоро здесь появится удобный интерфейс поиска мест где можно оставить свою мототехнику на хранение. Хотите пользоваться уже сейчас или разместить свои услуги, пишите нам:</string>
+    <string name="nav_subscribe">Подписка</string>
+    <string name="nav_subscribe_wait">Скоро здесь появится возможность получить расширенные возможности приложения: убрать рекламу, супер лайки в знакомствах, доп фильтры при поиске маршрутов или событий. Если сил ждать нет и вы хотите пользоваться этим сервисом, пишите нам:</string>
+    <string name="nav_setting">Настройки</string>
+    <string name="nav_logout">Выйти</string>
+    <string name="nav_rating">Рейтинги</string>
+    <string name="nav_rating1">Километры</string>
+    <string name="nav_rating2">Мотоциклы</string>
+    <string name="nav_feedback">Обратная связь</string>
+    <!--    Labels-->
+    <string name="lbl_read_more">\nчитать полностью</string>
+    <string name="lbl_read_less">свернуть</string>
+    <string name="lbl_yes">Да</string>
+    <string name="lbl_you">Вы</string>
+    <string name="lbl_you2">вы</string>
+    <string name="lbl_owner">Владелец</string>
+    <string name="lbl_admin">Администратор</string>
+    <string name="lbl_admin2">Админ</string>
+    <string name="lbl_first_name">Имя</string>
+    <string name="lbl_nick_name">Ник</string>
+    <string name="lbl_sex">Пол</string>
+    <string name="lbl_birth_date">Дата рождения</string>
+    <string name="lbl_age">Возраст</string>
+    <string name="lbl_birth">Дата рождения</string>
+    <string name="lbl_about">О себе</string>
+    <string name="lbl_about2">Расскажите о себе</string>
+    <string name="lbl_havent_acc">Нет аккаунта?</string>
+    <string name="lbl_restore_code">Введите логин в виде адреса электронной почты,  который вы использовали при регистрации и мы вышлем вам код для сброса пароля</string>
+    <string name="lbl_restore_code2">Введите код для сброса пароля, который мы отправили на адрес вашей электронной почты</string>
+    <string name="lbl_moto_brand">Марка</string>
+    <string name="lbl_moto_model">Модель</string>
+    <string name="lbl_photo">Фото</string>
+    <string name="lbl_find_nick_name">для поиска введите ник</string>
+    <string name="lbl_subscribe">Подписаться</string>
+    <string name="lbl_unsubscribe">Вы подписаны</string>
+    <string name="lbl_message">Написать</string>
+    <string name="lbl_route_name">Название маршрута</string>
+    <string name="lbl_route_about">Описание</string>
+    <string name="lbl_goto_yandex_map">Перейти на Яндекс Карты</string>
+    <string name="lbl_author">Автор</string>
+    <string name="lbl_edit">Редактировать</string>
+    <string name="lbl_add">Добавить</string>
+    <string name="lbl_delete">Удалить</string>
+    <string name="lbl_exclude">Исключить</string>
+    <string name="lbl_delete_confirm">Вы уверены, что хотите удалить маршрут?</string>
+    <string name="lbl_delete_confirm2">Вы уверены, что хотите удалить точку маршрута?</string>
+    <string name="lbl_chat_empty">У вас пока нет сообщений</string>
+    <string name="lbl_notification_empty">У вас пока нет уведомлений</string>
+    <string name="lbl_create">Создать</string>
+    <string name="lbl_dating">Погнали знакомиться</string>
+    <string name="lbl_enter_message">Сообщение</string>
+    <string name="lbl_send">отправить</string>
+    <string name="lbl_send2">Отправить</string>
+    <string name="lbl_pair_distance"> км от вас</string>
+    <string name="lbl_year_1">лет</string>
+    <string name="lbl_year_2">год</string>
+    <string name="lbl_year_3">года</string>
+    <string name="lbl_permission">Ошибка доступа геолокации</string>
+    <string name="lbl_permission2">Вероятно при первом запуске приложения вы отклонили запрос на доступ к геолокации. К сожалению, без этих доступов приложение не сможет корректно функционировать. Установите в настройках телефона разрешение на доступ к геолокации.</string>
+    <string name="lbl_select_moto">Если у вас нет мотоцикла, просто пропустите этот пункт</string>
+    <string name="lbl_not_find_pair1">Это не конец!</string>
+    <string name="lbl_not_find_pair2">Наше приложение постоянно пополняется активными пользователями. В ближайшем будущем вы сможете найти больше новых знакомств</string>
+    <string name="lbl_popup_pair_fill_header">Заполните информацию в профиле!</string>
+    <string name="lbl_popup_pair_fill_body">Чтобы повысить вероятность взаимного лайка, загрузите свою реальную фотографию и заполните информацию “о себе” в настройках профиля</string>
+    <string name="lbl_popup_pair_goto">Перейти</string>
+    <string name="lbl_complain_header">Почему вы хотите оставить жалобу?</string>
+    <string name="lbl_complain_header2">Это анонимно и позволит оперативно модерировать пользовательский контент исключая неприемлемые публикации</string>
+    <string name="lbl_complain_comment">Комментарий</string>
+    <string name="lbl_personal_info">Личная информация</string>
+    <string name="lbl_moto_info">Информация о мотоцикле</string>
+    <string name="lbl_need_help_header1">Нужна помощь?</string>
+    <string name="lbl_need_help_header2">Нажмите и удерживайте кнопку SOS если вам требуется помощь мотобратства</string>
+    <string name="lbl_need_help_header3">Эта функция поможет вам справиться с трудными ситуациями на дорогах, но если вы попали в ДТП или получили серьезные травмы, обратитесь в службу спасения.</string>
+    <string name="lbl_need_help_header4">Я хочу получать запросы о помощи от других пользователей</string>
+    <string name="lbl_need_help_header5">Служба спасения</string>
+    <string name="lbl_need_help_header6">Используйте эту кнопку в безвыходной или опасной ситуации</string>
+    <string name="lbl_need_help_header7">Изменить радиус</string>
+    <string name="lbl_need_help_header8">Выберите радиус в пределах которого вы готовы оказать помощь</string>
+    <string name="lbl_need_help_header9">От 1 км</string>
+    <string name="lbl_need_help_header10">1 км</string>
+    <string name="lbl_need_help_create_1">Что случилось?</string>
+    <string name="lbl_need_help_create_2">Авария</string>
+    <string name="lbl_need_help_create_3">Не запускается</string>
+    <string name="lbl_need_help_create_4">Пробитое колесо</string>
+    <string name="lbl_need_help_create_5">Закончился бензин</string>
+    <string name="lbl_need_help_create_6">Другое</string>
+    <string name="lbl_need_help_create_7">Оставьте свой номер телефона, чтобы с вами могли связаться</string>
+    <string name="lbl_need_help_card_1">Запрос о помощи отправлен</string>
+    <string name="lbl_need_help_card_2">Эти пользователи откликнулись на ваш запрос:</string>
+    <string name="lbl_need_help_card_3">Ожидайте отклика</string>
+    <string name="lbl_need_help_enemy_card_1">Вам поступил запрос о помощи</string>
+    <string name="lbl_need_help_enemy_card_2">Эти пользователи также откликнулись:</string>
+    <string name="lbl_need_help_enemy_card_3">Проложить маршрут</string>
+    <string name="lbl_need_help_enemy_card_4">Выдвигаюсь</string>
+    <string name="lbl_need_help_enemy_card_5">Вам был отправлен запрос о помощи от пользователя </string>
+    <string name="lbl_need_help_enemy_card_6">Связаться с </string>
+    <string name="lbl_need_help_enemy_card_7"><b><font fgcolor='#FFFFFF'>Что случилось:</font></b></string>
+    <string name="lbl_need_help_enemy_card_8"><b><font fgcolor='#FFFFFF'>Комментарий:</font></b></string>
+    <string name="lbl_need_help_enemy_card_9">Пока что вы единственный, кто готов помочь. Не ждите. Действуйте!</string>
+    <string name="lbl_need_help_enemy_card_10">Пользователь отменил запрос о помощи. Данный запрос больше не актуален</string>
+    <string name="lbl_about_default">Расскажите о себе, заполнив соответствующее поле, перейдя в редактирование профиля</string>
+    <string name="lbl_route_point_name">Название точки</string>
+    <string name="lbl_tow_truck_add">Разместить эвакуатор</string>
+    <string name="lbl_tow_truck_add2">Точка эвакуатора</string>
+    <string name="lbl_tow_truck_add3">Разместить</string>
+    <string name="lbl_tow_truck_add4">Загружаем адрес…</string>
+    <string name="lbl_tow_truck_add5">Заполните необходимую информацию</string>
+    <string name="lbl_tow_truck_add6">Описание объявления</string>
+    <string name="lbl_tow_truck_add7">Номер автомобиля</string>
+    <string name="lbl_tow_truck_add8">Ссылка на услугу</string>
+    <string name="lbl_tow_truck_add9">Работает круглосуточно</string>
+    <string name="lbl_tow_truck_add10">Работает по выходным</string>
+    <string name="lbl_tow_truck_add11">Ссылка на  Яндекс или Авито, где можно увидеть отзывы на вашу услугу. Допускаются другие релевантные сайты</string>
+    <string name="lbl_tow_truck_add12">Мы проверим ваше обьявление и скоро оно станет доступно для всех пользователей</string>
+    <string name="lbl_tow_truck_detail_1">Описание</string>
+    <string name="lbl_tow_truck_detail_2">Контакты</string>
+    <string name="lbl_tow_truck_detail_3">Режим работы</string>
+    <string name="lbl_tow_truck_detail_4">Ссылка на услугу</string>
+    <string name="lbl_tow_truck_detail_5">Будние дни</string>
+    <string name="lbl_tow_truck_detail_6">Круглосуточно, только будни</string>
+    <string name="lbl_tow_truck_detail_7">Круглосуточно, без выходных</string>
+    <string name="lbl_tow_truck_detail_8">Каждый день</string>
+    <string name="lbl_tow_truck_detail_9">Фильтры</string>
+    <string name="lbl_tow_truck_detail_10">Круглосуточно</string>
+    <string name="lbl_tow_truck_detail_11">По выходным</string>
+    <string name="lbl_tow_truck_detail_12">Мои</string>
+    <string name="lbl_tow_truck_detail_13">Все</string>
+    <string name="lbl_route_load_info">Информация загружается, подождите…</string>
+    <string name="lbl_route_point_mark">Завершить точку</string>
+    <string name="lbl_route_point_mark_2">Вы прошли точку. Поздравляем!</string>
+    <string name="lbl_route_point_mark_3">Потяни, чтобы завершить точку</string>
+    <string name="lbl_route_point_mark_4">Доберитесь до точки</string>
+    <string name="lbl_route_point_5">Расстояние до точки \~ %1$d км</string>
+    <string name="lbl_route_point_6">Вы добрались до точки!</string>
+    <string name="lbl_route_point_7">Когда вы доберетесь до этой точки, вы сможете ее отметить как завершенную. Завершив все точки, маршрут отметится как завершенный у вас в профиле и в карточке маршрута</string>
+    <string name="lbl_route_point_8">Координаты точки скопированы в буфер</string>
+    <string name="lbl_about_app">О приложении</string>
+    <string name="lbl_add_photo">Нажмите, чтобы добавить фото</string>
+    <string name="lbl_competition_name">Назовите соревнование</string>
+    <string name="lbl_competition_description">Опишите соревнование</string>
+    <string name="lbl_competition_type">Тип соревнования</string>
+    <string name="lbl_competition_type2">Тип</string>
+    <string name="lbl_competition_datetime">Укажите дату проведения</string>
+    <string name="lbl_competition_datetime2">Дата проведения</string>
+    <string name="lbl_competition_date">Дата</string>
+    <string name="lbl_competition_time">Время</string>
+    <string name="lbl_competition_max_member">Укажите количество участников</string>
+    <string name="lbl_competition_pay">Платное участие</string>
+    <string name="lbl_competition_pay_spec">Укажите стоимость участия</string>
+    <string name="lbl_competition_pay_cost">Стоимость</string>
+    <string name="lbl_competition_pay_free">бесплатно</string>
+    <string name="lbl_competition_pay_currency">Валюта</string>
+    <string name="lbl_competition_location">Место проведения</string>
+    <string name="lbl_competition_finish">Завершить соревнование</string>
+    <string name="lbl_competition_participant">Участвовать в соревновании</string>
+    <string name="lbl_competition_cancel_participant">Отменить участие</string>
+    <string name="lbl_competition_cancel_participants">участников</string>
+    <string name="lbl_competition_cancel_participants_empty">Здесь будут отображены профили всех участников</string>
+    <string name="lbl_competition_approve_member">Принять участника</string>
+    <string name="lbl_competition_approve_exclude">Отклонить</string>
+    <string name="lbl_competition_exclude_title">Вы действительно хотите исключить участника?</string>
+    <string name="lbl_competition_participants">Участники</string>
+    <string name="lbl_competition_participants_number">Номер</string>
+    <string name="lbl_competition_participants_place">Место</string>
+    <string name="lbl_competition_participants_placing">Определите места участников</string>
+    <string name="lbl_competition_is_finish">Соревнование завершено</string>
+    <string name="lbl_competition_member_number">Укажите номер участника</string>
+    <string name="lbl_competition_member_integration">Заявка на участие отправлена организатору. Ожидайте одобрения</string>
+    <string name="lbl_competition_close_err">Для завершения соревнования необходимо не менее 4-х участников</string>
+    <string name="lbl_no_photo">нет фото</string>
+    <string name="lbl_no_result">никого не найдено</string>
+    <string name="lbl_study_add">Разместить обучение</string>
+    <string name="lbl_study_add2">Точка обучения</string>
+    <string name="lbl_study_add9">Категория А</string>
+    <string name="lbl_study_add10">Сопровождение на дороге</string>
+    <string name="lbl_study_add11">Повышение мастерства</string>
+    <string name="lbl_study_add12">Контраварийные курсы</string>
+    <string name="lbl_study_add13">Мотокросс</string>
+    <string name="lbl_study_detail_3">Типы обучения</string>
+    <string name="lbl_verified">Проверено</string>
+    <string name="lbl_complain">Жалоба отправлена</string>
+    <string name="lbl_enemy_profile_help_write">Вы сможете написать пользователю когда он подпишется на вас</string>
+    <string name="lbl_route_help_1">Все пользователи увидят ваш маршрут после того, как вы добавите минимум 2 точки, и автоматически рассчитанная дистанция маршрута будет больше 0 км</string>
+    <string name="lbl_route_sheet_1">Записать маршрут</string>
+    <string name="lbl_route_sheet_2">Создать маршрут</string>
+    <string name="lbl_route_sheet_3">Сгенерировать маршрут</string>
+    <string name="lbl_route_sheet_4">Отслеживайте поездку, делитесь ей, увеличивайте пройденное расстояние и получайте достижения</string>
+    <string name="lbl_route_sheet_5">Создавайте интересные маршруты, чтобы другие пользователи смогли повторить эту поездку</string>
+    <string name="lbl_route_sheet_6">Быстрая генерация маршрута даст вам возможность прокатиться не задумываясь над маршрутом</string>
+    <string name="lbl_route_generate_1">Дистанция маршрута</string>
+    <string name="lbl_route_generate_2">Вернуться в стартовую точку</string>
+    <string name="lbl_route_generate_3">Сгенерировать</string>
+    <string name="lbl_route_generate_4">Прямой</string>
+    <string name="lbl_route_generate_5">Средний</string>
+    <string name="lbl_route_generate_6">Извилистый</string>
+    <string name="lbl_route_generate_7">Старт</string>
+    <string name="lbl_route_generate_8">Сгенерировать новый</string>
+    <string name="lbl_route_generate_9">Туда обратно</string>
+    <string name="lbl_route_generate_10">Повторить</string>
+    <string name="lbl_route_generate_11">Сохранить</string>
+    <string name="lbl_route_generate_12">Не определена геолокация</string>
+    <string name="lbl_route_generate_13">Отсутствуют точки для сохранения</string>
+    <string name="lbl_route_generate_14">Успешно сохранено в раздел \"Мои маршруты\"</string>
+    <string name="lbl_route_generate_15">Сгенерированный маршрут</string>
+    <string name="lbl_route_generate_16">Сгенерированная точка</string>
+    <string name="lbl_route_generate_17">Этот маршрут уже сохранен</string>
+    <string name="lbl_edit_profile_1">Информация для анкеты знакомств</string>
+    <string name="lbl_edit_profile_2">Информация будет доступна всем пользователям которые увидят ваш профиль</string>
+    <string name="lbl_edit_profile_3">Информация будет отображаться только в анкете для знакомств</string>
+    <string name="lbl_edit_profile_4">Пара слов о себе</string>
+    <string name="lbl_edit_profile_5">Включить функцию знакомств</string>
+    <string name="lbl_achievement_1">Достижения</string>
+    <string name="lbl_achievement_2">Все</string>
+    <string name="lbl_achievement_3">Регистрация</string>
+    <string name="lbl_achievement_4">Созданные маршруты</string>
+    <string name="lbl_achievement_5">Подписки</string>
+    <string name="lbl_achievement_6">Пройденные километры</string>
+    <string name="lbl_achievement_7">Созданные события</string>
+    <string name="lbl_route_record_1">Завершить поездку</string>
+    <string name="lbl_route_record_2">Старт</string>
+    <string name="lbl_route_record_3">Активное время</string>
+    <string name="lbl_route_record_4">Средн. скорость</string>
+    <string name="lbl_route_record_5">Расстояние</string>
+    <string name="lbl_route_record_6">Хотите опубликовать свой маршрут чтобы другие пользоватли могли его видеть?</string>
+    <string name="lbl_route_record_7">Опубликовать</string>
+    <string name="lbl_route_record_8">Сохранить</string>
+    <string name="lbl_route_record_9">Не сохранить</string>
+    <string name="lbl_route_record_10">%1$s км/ч</string>
+    <string name="lbl_route_record_11">Запись маршрута</string>
+    <string name="lbl_route_record_12">Чего стоим? Поехали уже ;)</string>
+    <string name="lbl_route_record_13">Для того чтобы Motohub мог записывать треки в фоне, необходимо получить разрешение на доступ к фоновой геолокации. В противном случае, трек будет записываться только тогда, когда приложение развернуто. Motohub не передает ваши данные третьим лицам и не использует их в рекламных целях (<a href="https://motohub.nordron01.ru/">Политика конфиденциальности</a>). Хотите разрешить Motohub доступ к геолокации в фоновом режиме?</string>
+    <string name="lbl_route_record_14">Принять</string>
+    <string name="lbl_route_record_15">Отклонить</string>
+    <string name="lbl_route_record_16">Доступ к фоновой геолокации</string>
+    <string name="lbl_route_record_17">При выборе “Не сохранять”, пройденное расстояние все равно будет записано в профиль и учтено в общем рейтинге</string>
+    <string name="lbl_route_record_18">Общее время</string>
+    <string name="lbl_route_record_19">Авто пауза</string>
+    <string name="lbl_route_edit_1">Тип маршрута</string>
+    <string name="lbl_registration_1">Вы сможете изменить свое решение в настройках профиля</string>
+    <string name="lbl_group_0">Группы в Motohub - приватное пространство для вас и ваших друзей. Выбирайте маршрут для совместных путешествий. Отслеживайте, где находятся участники на карте. Планируйте сбор группы.\n\nУ вас пока нет групп.\nСоздайте свою и приглашайте в нее друзей!\nИли поторопите друзей с приглашением</string>
+    <string name="lbl_group_1">Приглашение от</string>
+    <string name="lbl_group_2">Принять</string>
+    <string name="lbl_group_3">Название группы</string>
+    <string name="lbl_group_4">Описание группы</string>
+    <string name="lbl_group_5">Вы уверены, что хотите покинуть группу?</string>
+    <string name="lbl_group_6">Вы создатель группы и при выходе из нее, все участники автоматически будут удалены из группы. Вы уверены, что хотите покинуть группу?</string>
+    <string name="lbl_group_7">Покинуть</string>
+    <string name="lbl_group_8">Отмена</string>
+    <string name="lbl_group_9">Добавить участника</string>
+    <string name="lbl_group_10">Пригласить участников</string>
+    <string name="lbl_group_11">Приглашение отправлено</string>
+    <string name="lbl_group_12">Добавить участника</string>
+    <string name="lbl_group_13">Исключить участника</string>
+    <string name="lbl_group_14">Участник группы</string>
+    <string name="lbl_group_15">Место сбора</string>
+    <string name="lbl_group_16">Катаю</string>
+    <string name="lbl_group_17">Остановить отслеживание</string>
+    <string name="lbl_group_18">Эта функция позволит участникам группы видеть ваше положение на карте в режиме онлайн</string>
+    <string name="lbl_group_19">Остановив отслеживание, участники группы больше не смогут увидеть ваше положение на карте</string>
+    <string name="lbl_group_20">Катаем</string>
+    <string name="lbl_group_21">Вы делитесь геопозицией с участниками группы \'%1$s\'</string>
+    <string name="lbl_group_22">Вы уже делитесь геопозицией с участниками другой группы. Хотите начать в этой группе?\n(Передача данных геопозиции в предыдущую группу будет остановлена)</string>
+    <string name="lbl_group_23">Активный маршрут</string>
+    <string name="lbl_group_24">Выбрать маршрут</string>
+    <string name="lbl_group_25">Чтобы выбрать маршрут, добавьте его в избранное или создайте свой</string>
+    <string name="lbl_group_26">Выберите маршрут для группы</string>
+    <string name="lbl_group_27">Список участников</string>
+    <string name="lbl_group_28">Администраторы</string>
+    <string name="lbl_group_29">Администраторы группы</string>
+    <string name="lbl_group_30">Вы можете добавить администраторов, которые помогут вам управлять вашей группой</string>
+    <string name="lbl_group_31">Добавить Администратора</string>
+    <string name="lbl_group_32">Сбор</string>
+    <string name="lbl_group_33">Выберите дату сбора</string>
+    <string name="lbl_group_34">Сбор: %1$s</string>
+    <string name="lbl_group_35">На карте постоянное место сбора</string>
+    <string name="lbl_group_36">дата: %1$s</string>
+    <string name="lbl_group_37">время: %1$s</string>
+    <string name="lbl_group_38">Сбор: %1$s. Подробнее на карте</string>
+    <string name="lbl_group_39">Выключить уведомления</string>
+    <string name="lbl_group_40">Включить уведомления</string>
+    <string name="lbl_feedback_1">Обратная связь</string>
+    <string name="lbl_feedback_2">У вас есть идея? Столкнулись с проблемой? Есть чем поделиться?\nПишите!\nРеализуем идею, исправим проблемы, выслушаем!\nА если нравится приложение, не забывайте ставить 5 звезд на маркете</string>
+    <string name="lbl_feedback_3">Текст сообщения</string>
+    <string name="lbl_feedback_4">Спасибо за обратную связь!</string>
+    <string name="lbl_auth_alert_1">Для полного доступа к функциям приложения, необходимо пройти регистрацию</string>
+    <string name="lbl_auth_alert_2">Регистрация</string>
+    <string name="lbl_rating_2024">2024</string>
+    <string name="lbl_rating_2025">2025</string>
+    <string name="lbl_rating_1">Марка</string>
+    <string name="lbl_rating_2">Марка + модель</string>
+
+    <string name="lbl_news_1">+ %1$d &#8451;</string>
+    <string name="lbl_news_2">- %1$d &#8451;</string>
+    <string name="lbl_news_3">%1$d &#8451;</string>
+    <!--25-30-->
+    <string name="lbl_news_4_1">Жарко, но главное не стоять в пробках! И не забываем о безопасности, мотофутболка не спасает.</string>
+    <string name="lbl_news_4_2">Жарко, но главное не стоять в пробках! И не забываем о безопасности, мотошорты не спасают.</string>
+    <string name="lbl_news_4_3">Жарко, но главное не стоять в пробках! И не забываем о безопасности, мотосланцы не спасают.</string>
+    <string name="lbl_news_4_4">Жарко, но главное не стоять в пробках! И не забываем о безопасности, мотокепка не спасает.</string>
+    <!--20-25-->
+    <string name="lbl_news_5_1">Прекрасная теплая погода, самое время катать!</string>
+    <!--15-20-->
+    <string name="lbl_news_6_1">Хорошая погода, время катать! Но вечер и ночь могут быть прохладными.</string>
+    <!--10-15-->
+    <string name="lbl_news_7_1">Утепляемся и катаем! С закатом солнца может стать достаточно прохладно.</string>
+    <!--5-10-->
+    <string name="lbl_news_8_1">Катать можно, но асфальт холодный. Будьте аккуратнее и выбирайте экипировку теплее.</string>
+    <!--<5-->
+    <string name="lbl_news_9_1">Холодно, чтобы катать. Но на этот случай есть мотокросс ;)</string>
+    <string name="lbl_news_9_2">Минус за окном, а это значит катаем мотокросс ;)</string>
+    <string name="lbl_news_9_3">Отрицательная температура сир, есть ли у нас снегоход?</string>
+    <string name="lbl_news_9_4">Бррр, лучше сидеть дома и греться</string>
+    <!--Wind-->
+    <string name="lbl_news_10_1">Обещали ветерок. Будьте аккуратнее на открытых пространствах и высоких скоростях.</string>
+    <string name="lbl_news_10_2">Обещали сильный ветер. Проверьте устойчивое положение байка. И аккуратнее с чехлами, они работают как парус, порой лучше снять.</string>
+    <!--Rain-->
+    <string name="lbl_news_11_1">Кажется будет дождь, но кого он волнует в такую погоду!</string>
+    <string name="lbl_news_11_2">Возможен дождь, не лишним прихватить дождевик.</string>
+    <string-array name="lbl_news_12_add">
+        <item>Не забывай поприветствовать проезжающего мимо мотобратишку/сестренку! Но не забывай о безопасности, порой лучше сосредоточиться на дороге ;)</item>
+        <item>Заметили на обочине мотобратишку/сестренку, остановитесь, узнайте не нужна ли помощь! Но не забываем, что съезжать на обочину нужно плавно, начиная торможение на асфальте. Порой на обочине много песка и остановиться может быть проблемой.</item>
+        <item>Междурядье тема, но будь осторожнее и если кого-то задел, наберись смелости остановиться и оценить повреждения, ведь у всех есть страховка. Порой ущерба и не будет, а о мотосообществе не будет складываться дурного мнения.</item>
+        <item>500–1000км и чистить цепь! Ну и после каждой покатушки под дождем</item>
+        <item>Если вам грустно, просто прокатитесь на мотоцикле – он всегда поднимет настроение!</item>
+        <item>Если вам грустно, просто прокатитесь на мотоцикле – он всегда знает, как развеселить!</item>
+        <item>У вас есть крутой совет? Пишите нам через Обратную связь на боковой панели</item>
+        <item>Знаете постоянное место сбора открытых мототусовок? Пишите нам через Обратную связь на боковой панели, добавим на карту</item>
+    </string-array>
+    <string name="lbl_news_100">Вы уверены, что хотите удалить запись?</string>
+    <string name="lbl_news_101">Текст поста</string>
+
+    <string name="btn_logout">Выйти</string>
+    <string name="btn_edit_profile">Редактировать профиль</string>
+    <string name="btn_forgot_password">Забыли пароль?</string>
+    <string name="btn_next">Далее</string>
+    <string name="btn_send_code">Отправить код</string>
+    <string name="btn_change_password">Сменить пароль</string>
+    <string name="btn_cancel">Отмена</string>
+    <string name="btn_cancel2">Отменить</string>
+    <string name="btn_create">Создать</string>
+    <string name="btn_save">Сохранить</string>
+    <!--    HTTP Codes-->
+    <string name="ups" httpcode="404">Упссс…</string>
+    <string name="httpnotinternet" httpcode="404">Кажется у вас пропал интернет :( мы не можем вас авторизовать без соединения с сетью интернет</string>
+    <string name="http404">Наши сервера сейчас проходят обслуживание. Попробуйте зайти позднее</string>
+    <string name="http401" httpcode="401">Проверьте правильность введенного логина или пароля</string>
+    <string name="httpall" httpcode="401">Произошла непредвиденная ошибка, свяжитесь с нашей поддержкой или попробуйте позднее</string>
+    <string name="code3_01" httpcode="400">Указанный email не найден</string>
+    <string name="code3_02" httpcode="400">Указан неверный код</string>
+    <!--    Title-->
+    <string name="act_title_registration">Регистрация</string>
+    <string name="act_title_login">Вход</string>
+    <string name="act_title_profile">Профиль</string>
+    <string name="act_title_edit_profile">Личная информация</string>
+    <!--    Dynamic-->
+    <string name="dynamic_label_text">%1$s: %2$s</string>
+    <string name="dynamic_slash_text">%1$s\/%2$s</string>
+    <string name="dynamic_count_subscriptions">%1$s\nПодписок</string>
+    <string name="dynamic_count_subscribers">%1$s\nПодписчиков</string>
+    <string name="dynamic_count_photos">%1$s\nФото</string>
+    <string name="dynamic_count_route">%1$s - %2$s\nМаршрутов</string>
+    <string name="dynamic_count_competition">%1$s - %2$s\nСоревнований</string>
+    <string name="dynamic_user_nick_name">\@%1$s</string>
+    <string name="dynamic_pilot_moto">Пилот %1$s</string>
+    <string name="dynamic_route_km">\~ %1$s км</string>
+    <string name="dynamic_route_km2">Дистанция \~ %1$s км</string>
+    <string name="dynamic_route_km2d">Дистанция \~ %1$d км</string>
+    <string name="dynamic_route_km3">\~ %1$d км</string>
+    <string name="dynamic_route_3">Средняя скорость %1$d км/ч</string>
+    <string name="dynamic_route_4">Активное время %02d:%02d:%02d</string>
+    <string name="dynamic_route_5">Общее время %02d:%02d:%02d</string>
+    <string name="dynamic_created_dt">Создано %1$s</string>
+    <string name="dynamic_author_dog">\@%1$s</string>
+    <string name="dynamic_user_writing">%1$s печатает…</string>
+    <string name="dynamic_need_help_card_1"><b><font fgcolor='#FFFFFF'>Что случилось:</font></b> %1$s</string>
+    <string name="dynamic_need_help_card_2"><b><font fgcolor='#FFFFFF'>Комментарий:</font></b> %1$s</string>
+    <string name="dynamic_route_end_point_1">Точка “%1$s” достигнута!</string>
+    <string name="dynamic_version">Версия %1$s</string>
+    <string name="dynamic_route_generate_1">\~ %1$s км</string>
+    <string name="dynamic_route_generate_2">%1$s км</string>
+    <string name="dynamic_route_generate_3">%1$s ч %2$s мин</string>
+    <string name="dynamic_profile_distance_1">%1$d км</string>
+    <string name="dynamic_profile_distance_2">%1$d км</string>
+    <string name="dynamic_sequence_1">%1$d. </string>
+    <string name="dynamic_lbl_route_record_1">Время: %1$s Дистанция: %2$s км</string>
+    <string name="dynamic_lbl_route_record_2">Авто пауза. Время: %1$s Дистанция: %2$s км</string>
+    <!--    Validate Msg    -->
+    <string name="vldt_bdate_formate">Заполните поле в формате по примеру 01.01.1900</string>
+    <string name="vldt_empty">Поле не может быть пустым</string>
+    <string name="vldt_email">Укажите корректный email адрес</string>
+    <string name="vldt_fill_code">Заполните код отправленный вам на email</string>
+    <string name="vldt_fill_pass1">содержит латинские символы и цифры</string>
+    <string name="vldt_fill_pass2">больше пяти символов</string>
+    <string name="vldt_fill_pass3">содержит минимум одну заглувную букву</string>
+    <string name="vldt_nickname_exist">Указанный никнейм уже занят, выберите пожалуйста другой</string>
+    <string name="vldt_create_help_road_1">Необходимо выбрать одну из причин</string>
+    <string name="vldt_create_help_road_2">При выборе причины "Другое", необходимо написать комментарий</string>
+    <string name="vldt_create_help_road_3">Номер телефона не может быть пустым</string>
+    <string name="vldt_create_truck_1">Номер телефона не может быть пустым</string>
+    <string name="vldt_create_truck_2">Описание не может быть пустым</string>
+    <string name="vldt_create_truck_3">Номер эвакуатора не может быть пустым</string>
+    <string name="vldt_create_truck_4">Ссылка не может быть пустой</string>
+    <string name="vldt_registration_1">Нужно быть старше 12 лет</string>
+    <string name="vldt_registration_2">Верите в перерождение или заводите аккаунт будущим детям?:)</string>
+    <!--    ERROR           -->
+    <string name="err_stomp">Кажется у нас проблемы с сервисом обмена сообщений. Ваши сообщения дойдут, но в моменте вы не увидите входящих сообщений</string>
+    <string name="err_location_service">Кажется у вас на устройстве выключено определение локации. Для использования трекинга, необходимо включить этот сервис</string>
+    <!--    MENU           -->
+    <string name="menu_complain">Пожаловаться</string>
+    <string name="menu_edit">Редактировать</string>
+    <string name="menu_delete">Удалить</string>
+    <string name="menu_clear">Очистить</string>
+    <string name="menu_bookmark">Добавить в избранное</string>
+    <string name="menu_undo_bookmark">Убрать из избранного</string>
+    <string name="menu_group_1">Покинуть группу</string>
+    <string name="menu_group_2">Редактировать</string>
+    <!--    ARRAY           -->
+    <string-array name="array_complain">
+        <item>Мошенничество</item>
+        <item>Оскорбления</item>
+        <item>Откровенное изображение</item>
+        <item>Насилие и вражда</item>
+    </string-array>
+    <string-array name="sort_all_route">
+        <item>Популярные</item>
+        <item>Рядом</item>
+        <item>Новые</item>
+    </string-array>
+    <string-array name="sort_my_route">
+        <item>Созданные</item>
+        <item>Записанные</item>
+    </string-array>
+    <string-array name="sort_all_competition">
+        <item>Недавно созданные</item>
+        <item>Ближайшие (км)</item>
+        <item>Ближайшие (дата проведения)</item>
+    </string-array>
+    <string-array name="type_competition">
+        <item>Спидвей</item>
+        <item>Мотокросс</item>
+        <item>Супермото</item>
+        <item>Эндуро</item>
+        <item>Кросс-кантри</item>
+        <item>Эндуро-кросс</item>
+        <item>Шоссейно-кольцевые гонки</item>
+        <item>Мотобол</item>
+        <item>Мототриал</item>
+        <item>Шоссейно-линейные гонки</item>
+        <item>Скийоринг</item>
+        <item>Мото-джимхана</item>
+        <item>Заезды на установление рекордов</item>
+        <item>Мотофристайл (FMX)</item>
+        <item>Стантрайдинг</item>
+        <item>Трофи-рейд</item>
+    </string-array>
+    <string-array name="type_competition_code">
+        <item>SPEEDWAY</item>
+        <item>MOTOCROSS</item>
+        <item>SUPERMOTO</item>
+        <item>ENDURO</item>
+        <item>CROSSCOUNTRY</item>
+        <item>ENDUROCROSS</item>
+        <item>CIRCUITRACING</item>
+        <item>MOTOBALL</item>
+        <item>MOTOTRIAL</item>
+        <item>LINERACING</item>
+        <item>SKIORING</item>
+        <item>GYMKHANA</item>
+        <item>RECORDRACES</item>
+        <item>FMX</item>
+        <item>STANTRADING</item>
+        <item>TROPHYRAID</item>
+    </string-array>
+    <string-array name="route_type">
+        <item>Дорожный</item>
+        <item>Эндуро</item>
+        <item>Смешанный</item>
+        <item>Серпантин</item>
+        <item>Красивый</item>
+        <item>Вдвоем</item>
+        <item>Трек</item>
+    </string-array>
+    <string name="route_type_generated">Сгенерированный</string>
+    <string-array name="route_type_code">
+        <item>ROAD</item>
+        <item>ENDURO</item>
+        <item>MIXED</item>
+        <item>SERPENTINE</item>
+        <item>BEAUTIFUL</item>
+        <item>TOGETHER</item>
+        <item>TRACK</item>
+    </string-array>
+    <!--    HTML           -->
+    <string name="html_yandex_term"><a href="https://yandex.ru/legal/maps_termsofuse/?lang=ru">Условия использования Яндекс.Карт</a></string>
+
+    <!--    LICENCES           -->
+    <string name="lic_1">CircleImageView\nCopyright 2014 - 2020 Henning Dodenhof\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at\n
+\n
+        http://www.apache.org/licenses/LICENSE-2.0\n
+\nUnless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+    <string name="lic_2">ZoomLayout\nCopyright © 2020 Mattia Iavarone\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at\n
+        \n
+        http://www.apache.org/licenses/LICENSE-2.0\n
+\nUnless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+    <string name="lic_3">Country Code Picker Library\nCopyright © 2016 Harsh Bhakta\nLicensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at\n
+\n
+        http://www.apache.org/licenses/LICENSE-2.0\n
+\nUnless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+        \n - - -</string>
+
+    <!--    IMAGE DESCRIPTION           -->
+    <string name="content_description_verified">Проверенный пользователь</string>
+</resources>

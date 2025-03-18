@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="8dp"
+    android:paddingBottom="24dp">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/avatarImg"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:src="@drawable/kandinsky_av2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/roboto"
+        android:includeFontPadding="false"
+        android:singleLine="true"
+        android:text="Nickname"
+        android:textColor="@color/moto_white"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImg"
+        app:layout_constraintStart_toEndOf="@+id/avatarImg"
+        app:layout_constraintTop_toTopOf="@+id/avatarImg" />
+
+    <ImageView
+        android:id="@+id/userVerifiedImg"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginStart="8dp"
+        android:contentDescription="@string/content_description_verified"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImg"
+        app:layout_constraintStart_toEndOf="@+id/nickname"
+        app:layout_constraintTop_toTopOf="@+id/avatarImg"
+        app:srcCompat="@drawable/icon_verified" />
+
+    <ImageButton
+        android:id="@+id/moreBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/transparent_with_selector_bg"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@+id/avatarImg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/avatarImg"
+        app:srcCompat="@drawable/icon_more_horiz" />
+
+    <ImageView
+        android:id="@+id/newsImg"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:adjustViewBounds="true"
+        android:importantForAccessibility="no"
+        android:minHeight="150dp"
+        android:scaleType="fitStart"
+        android:src="@drawable/rectangle_1525"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/avatarImg" />
+
+    <ImageButton
+        android:id="@+id/likeBtn"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/transparent_with_selector_bg"
+        android:importantForAccessibility="no"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="8dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsText"
+        app:srcCompat="@drawable/image_thumbup_gray" />
+
+    <TextView
+        android:id="@+id/countLikeText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:includeFontPadding="false"
+        android:text="100500"
+        app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
+        app:layout_constraintStart_toEndOf="@+id/likeBtn"
+        app:layout_constraintTop_toTopOf="@+id/likeBtn" />
+
+    <TextView
+        android:id="@+id/dateText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto"
+        android:includeFontPadding="false"
+        android:text="01.01.1970"
+        app:layout_constraintBottom_toBottomOf="@+id/likeBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/likeBtn" />
+
+    <kr.co.prnd.readmore.ReadMoreTextView
+        android:id="@+id/newsText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="8dp"
+        android:autoLink="all|phone"
+        android:linksClickable="true"
+        android:text="TextView"
+        app:fontFamily="@font/roboto"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newsImg"
+        app:readMoreColor="@color/moto_primary_orange"
+        app:readMoreMaxLine="4"
+        app:readMoreText="@string/lbl_read_more" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

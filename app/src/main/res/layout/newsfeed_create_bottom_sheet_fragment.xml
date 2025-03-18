@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:paddingVertical="16dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.bottomsheet.BottomSheetDragHandleView
+            android:id="@+id/drag_handle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="24dp"
+            android:paddingBottom="4dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/newsImg"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="8dp"
+            android:adjustViewBounds="true"
+            android:importantForAccessibility="no"
+            android:scaleType="fitCenter"
+            android:src="@drawable/rectangle_1525"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/drag_handle" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_gray"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="5dp"
+            android:src="@drawable/circle_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/newsImg"
+            app:layout_constraintEnd_toEndOf="@+id/newsImg"
+            app:layout_constraintStart_toStartOf="@+id/newsImg"
+            app:layout_constraintTop_toTopOf="@+id/newsImg" />
+
+        <ImageButton
+            android:id="@+id/changeImage_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/outline_edit_24_gray"
+            android:theme="@style/Theme.MotoT.Fab"
+            app:layout_constraintBottom_toBottomOf="@+id/newsImg"
+            app:layout_constraintEnd_toEndOf="@+id/newsImg"
+            app:layout_constraintStart_toStartOf="@+id/newsImg"
+            app:layout_constraintTop_toTopOf="@+id/newsImg"
+            app:tint="#FDF8FD" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/newsfeedLayout"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/lbl_news_101"
+            app:counterMaxLength="2000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsImg">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/newsfeedText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="2000" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/upsertNewsfeed_btn"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:enabled="true"
+            android:text="@string/btn_save"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/newsfeedLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

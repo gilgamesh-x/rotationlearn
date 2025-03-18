@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/icon_menu_event"
+        android:title="@string/nav_event"
+        android:contentDescription="@string/nav_event"
+        android:tooltipText="" />
+
+    <item
+        android:id="@+id/navigation_route"
+        android:icon="@drawable/icon_menu_route"
+        android:title="@string/nav_route"
+        android:contentDescription="@string/nav_route"
+        android:tooltipText="" />
+
+    <item
+        android:id="@+id/navigation_news"
+        android:icon="@drawable/icon_menu_hub"
+        android:title="@string/nav_news"
+        android:contentDescription="@string/nav_news"
+        android:tooltipText="" />
+
+    <item
+        android:id="@+id/navigation_group"
+        android:icon="@drawable/icon_menu_group"
+        android:title="@string/nav_group"
+        android:contentDescription="@string/nav_group"
+        android:tooltipText="" />
+
+    <item
+        android:id="@+id/navigation_find_pair"
+        android:icon="@drawable/icon_menu_pair"
+        android:title="@string/nav_pair"
+        android:contentDescription="@string/nav_pair"
+        android:tooltipText="" />
+
+    <!--<item
+        android:id="@+id/navigation_chat"
+        android:icon="@drawable/chats"
+        android:title="@string/nav_msg"
+        android:contentDescription="@string/nav_msg"
+        android:tooltipText="" />-->
+</menu>

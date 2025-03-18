@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingHorizontal="8dp"
+    android:paddingVertical="6dp">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/competition_card"
+        android:layout_width="0dp"
+        android:layout_height="180dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="false"
+        android:layout_gravity="center"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/competition_img"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/track_day_feature"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/imageViewProfile_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/layout_gradient_background_black_50"
+        android:elevation="17dp"
+        app:layout_constraintBottom_toBottomOf="@+id/competition_card"
+        app:layout_constraintEnd_toEndOf="@+id/competition_card"
+        app:layout_constraintStart_toStartOf="@+id/competition_card"
+        app:layout_constraintTop_toTopOf="@+id/competition_card">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/imageViewProfileInactive_foreground"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#CC1B1B1B"
+        android:elevation="170dp"
+        app:layout_constraintBottom_toBottomOf="@+id/competition_card"
+        app:layout_constraintEnd_toEndOf="@+id/competition_card"
+        app:layout_constraintStart_toStartOf="@+id/competition_card"
+        app:layout_constraintTop_toTopOf="@+id/competition_card">
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/name_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:elevation="30dp"
+        android:fontFamily="@font/roboto"
+        android:maxLines="2"
+        android:text="Название"
+        android:textColor="#FDF8FD"
+        app:layout_constraintBottom_toTopOf="@+id/description_text"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewProfile_foreground"
+        app:layout_constraintStart_toStartOf="@+id/imageViewProfile_foreground" />
+
+    <TextView
+        android:id="@+id/description_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
+        android:elevation="30dp"
+        android:fontFamily="@font/roboto"
+        android:maxLines="2"
+        android:text="Наши соревнования для мотоциклистов - это захватывающее событие, которое собирает вместе любителей скорости и азарта. Участники соревнова... "
+        android:textColor="#FDF8FD"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/date_text"
+        app:layout_constraintEnd_toEndOf="@+id/competition_card"
+        app:layout_constraintStart_toStartOf="@+id/competition_card" />
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_weight="1"
+        android:elevation="30dp"
+        android:fontFamily="@font/roboto"
+        android:text="Дата проведения: 23 июня. 2024г."
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/competition_card"
+        app:layout_constraintEnd_toStartOf="@+id/imageView26"
+        app:layout_constraintStart_toStartOf="@+id/competition_card" />
+
+    <TextView
+        android:id="@+id/countMember_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:drawingCacheQuality="high"
+        android:elevation="30dp"
+        android:text="@string/dynamic_slash_text"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageViewProfile_foreground"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewProfile_foreground" />
+
+    <ImageView
+        android:id="@+id/imageView26"
+        android:layout_width="14dp"
+        android:layout_height="14dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="8dp"
+        android:elevation="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/competition_card"
+        app:layout_constraintEnd_toStartOf="@+id/countMember_text"
+        app:srcCompat="@drawable/baseline_sports_motorsports_24" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

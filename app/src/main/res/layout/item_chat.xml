@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginBottom="20dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_chat_avatar"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:src="@drawable/kandinsky_av2" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginStart="8dp"
+        android:layout_toEndOf="@+id/img_chat_avatar"
+        android:background="@drawable/textview_border_bottom"
+        android:paddingBottom="4dp">
+
+        <TextView
+            android:id="@+id/text_name_chat"
+            android:layout_width="0dp"
+            android:layout_height="20dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="center_vertical"
+            android:lineHeight="20sp"
+            android:text="nickname"
+            android:textColor="#F1EADE"
+            android:textFontWeight="600"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/text_lstmsgdt_chat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/img_unread_chat"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/rounded_textview_primary"
+            android:fontFamily="@font/roboto"
+            android:gravity="center"
+            android:lineHeight="16sp"
+            android:text="1"
+            android:textColor="#FFFFFFFF"
+            android:textSize="12sp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_lstmsgdt_chat" />
+
+        <TextView
+            android:id="@+id/text_lstmsg_chat"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:fontFamily="@font/roboto"
+            android:gravity="top"
+            android:lineHeight="18sp"
+            android:maxLines="2"
+            android:minLines="1"
+            android:singleLine="false"
+            android:text="textMsg"
+            android:textColor="#FFCAC4CF"
+            android:textFontWeight="400"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/img_unread_chat"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_name_chat" />
+
+        <TextView
+            android:id="@+id/text_lstmsgdt_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:lineHeight="16sp"
+            android:text="20:13"
+            android:textColor="#FFCAC4CF"
+            android:textFontWeight="400"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

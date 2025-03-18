@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape>
+            <!--<gradient
+                android:startColor="@color/moto_primary_orange"
+                android:endColor="#FF7E06"
+                android:angle="360" />-->
+            <gradient
+                android:startColor="@color/moto_primary_orange"
+                android:endColor="#FF7E06"
+                android:angle="360" />
+            <stroke android:width="2px" android:color="@color/moto_primary_orange" />
+            <corners android:bottomLeftRadius="12dp" android:bottomRightRadius="12dp" android:topLeftRadius="12dp" android:topRightRadius="12dp" />
+            <padding android:bottom="12dp" android:left="8dp" android:right="8dp" android:top="12dp" />
+        </shape>
+    </item>
+</layer-list>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="btn_main">#00147A</color>
+    <color name="moto_filter_white">#CAC5CA</color>
+    <color name="moto_filter_gray">#363438</color>
+    <color name="moto_action_bar_dark">#1C1B1F</color>
+    <color name="moto_primary_orange">#FF964B</color>
+    <color name="moto_primary_dark">#FF964B</color>
+    <color name="moto_white">#FDF8FD</color>
+    <color name="moto_white_disabled">#E6E0E9</color>
+    <color name="mot_divide_side_bar">#49454F</color>
+
+    <color name="moto_main_btn">@color/moto_primary_orange</color>
+    <color name="moto_main_btn_disabled">#1FE6E0E9</color>
+    <color name="moto_second_btn">#5B5956</color>
+    <color name="moto_menu_red">#FF5449</color>
+    <color name="moto_badge_notification">#FF5449</color>
+    <color name="moto_mark_point">#F6EEFF</color>
+    <color name="moto_mark_point_ro">#49454E</color>
+    <color name="moto_gray">#CAC4CF</color>
+
+    <color name="moto_competition_gold">#FFD700</color>
+    <color name="moto_competition_silver">#C0C0C0</color>
+    <color name="moto_competition_bronze">#CD7F32</color>
+    <color name="moto_competition_other">#FDF8FD</color>
+
+    <color name="moto_select_btn_route_generate">#413E44</color>
+    <color name="moto_select_btn_route_generate2">#4A4458</color>
+
+    <color name="route_style_road">#0279a8</color>
+    <color name="route_style_enduro">#674c0e</color>
+    <color name="route_style_mixed">#07737a</color>
+    <color name="route_style_serpentine">#000000</color>
+    <color name="route_style_beautiful">#7851A9</color>
+    <color name="route_style_together">#E4717A</color>
+    <color name="route_style_other">#FF964B</color>
+
+    <color name="moto_divider">#5B5956</color>
+
+    <color name="icon_gray">#CAC4CF</color>
+</resources>

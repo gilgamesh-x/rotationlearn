@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="AppThemeBase" parent="Theme.MotoT">
+        <item name="android:forceDarkAllowed" tools:targetApi="q">false</item>
+    </style>
+
+    <style name="Style.MotoT.NoActionBar" parent="AppThemeBase">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="Style.MotoT.HideSplash" parent="AppThemeBase">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Style.TranslucentStatusBar" parent="AppThemeBase">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="MainButton2" parent="@android:style/Widget.Button">
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">15dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:padding">1dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/button_main</item>
+        <item name="android:gravity">center</item>
+        <item name="android:radius">16px</item>
+    </style>
+    <style name="MotoButtons">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">@color/main_button_color_selector</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingVertical">0dp</item>
+    </style>
+    <style name="MotoButtonsCancel">
+        <item name="android:fontFamily">@font/roboto</item>
+        <item name="android:textFontWeight">600</item>
+        <item name="android:textColor">#FF5449</item>
+        <item name="android:textSize">14sp</item>
+        <item name="lineHeight">20sp</item>
+        <item name="android:gravity">center</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:paddingVertical">0dp</item>
+    </style>
+    <style name="MainButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_main</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="MainButtonSmall" parent="MotoButtons">
+        <item name="android:background">@drawable/button_main_small</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="SecondButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_second</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="SecondButtonSmall" parent="MotoButtons">
+        <item name="android:background">@drawable/button_second_small</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="GoPairButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_pair</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="CancelButton" parent="MotoButtonsCancel">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="MarkPointButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_mark_point</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="SuperLikePair" parent="MotoButtons">
+        <item name="android:background">@drawable/button_superlike</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="LikePair" parent="MotoButtons">
+        <item name="android:background">@drawable/button_like</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="DislikePair" parent="MotoButtons">
+        <item name="android:background">@drawable/button_dislike</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="CompetitionApproveButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_competition_approve</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="CompetitionExcludeButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_competition_exclude</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="RouteGenerateButton" parent="MotoButtons">
+        <item name="android:background">@drawable/button_route_generate</item>
+        <item name="android:foreground">?android:attr/selectableItemBackground</item>
+    </style>
+    <style name="MainButtonFabSuperLike" parent="Theme.MotoT">
+        <item name="android:layout_height">56dp</item>
+        <item name="android:layout_width">56dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="iconGravity">textEnd</item>
+        <item name="iconPadding">0dp</item>
+        <item name="colorPrimary">@null</item>
+    </style>
+    <style name="TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:paddingBottom">8dp</item>
+        <item name="android:lineHeight">24sp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#CAC4D0</item>
+        <item name="android:fontFamily">@font/roboto</item>
+    </style>
+    <style name="MotoSwitch">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">#46bdbf</item>
+        <!-- inactive thumb color -->
+        <item name="colorSwitchThumbNormal">#f1f1f1
+        </item>
+        <!-- inactive track color (30% transparency) -->
+        <item name="android:colorForeground">#42221f1f
+        </item>
+        <item name="colorOnPrimaryFixed">@color/white</item>
+        <item name="colorOnPrimaryFixedVariant">@color/white</item>
+        <item name="colorPrimaryContainer">@color/white</item>
+    </style>
+    <style name="MyCardView" parent="@style/Widget.MaterialComponents.CardView">
+        <item name="shapeAppearanceOverlay">@style/ShapeAppearanceOverlay.MaterialCardView.Cut</item>
+    </style>
+
+
+    <style name="ShapeAppearanceOverlay.MaterialCardView.Cut" parent="">
+        <item name="cornerSizeTopRight">0dp</item>
+        <item name="cornerSizeTopLeft">4dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">4dp</item>
+    </style>
+
+</resources>

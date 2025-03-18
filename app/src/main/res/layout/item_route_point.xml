@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/background_radius_4_selected"
+    android:elevation="1dp">
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/card_route_img"
+        style="@style/MyCardView"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentBottom="false"
+        android:layout_gravity="center"
+        android:elevation="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:rippleColor="@android:color/transparent"
+        app:strokeColor="#CC313033">
+
+        <ImageView
+            android:id="@+id/img_route_point"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:importantForAccessibility="no"
+            android:scaleType="centerCrop"
+            android:src="@drawable/baseline_image_56" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <ImageButton
+        android:id="@+id/copyLocation_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:background="@null"
+        android:contentDescription="@string/lbl_group_13"
+        android:importantForAccessibility="no"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_copy"
+        app:tint="@color/moto_primary_orange" />
+
+    <TextView
+        android:id="@+id/sequence_route_point"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:fontFamily="@font/roboto"
+        android:gravity="center_vertical"
+        android:lineHeight="20sp"
+        android:text="@string/dynamic_sequence_1"
+        android:textColor="#F1EADE"
+        android:textFontWeight="600"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/card_route_img"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/name_route_point"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto"
+        android:gravity="center_vertical"
+        android:lineHeight="20sp"
+        android:singleLine="true"
+        android:text="name"
+        android:textColor="#F1EADE"
+        android:textFontWeight="600"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toStartOf="@+id/copyLocation_btn"
+        app:layout_constraintStart_toEndOf="@+id/sequence_route_point"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/desc_route_point"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/roboto"
+        android:gravity="start"
+        android:lineHeight="16sp"
+        android:singleLine="true"
+        android:text="description"
+        android:textColor="#CAC4CF"
+        android:textFontWeight="400"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toStartOf="@+id/copyLocation_btn"
+        app:layout_constraintStart_toEndOf="@+id/card_route_img"
+        app:layout_constraintTop_toBottomOf="@+id/sequence_route_point" />
+
+    <TextView
+        android:id="@+id/distancePoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="8dp"
+        android:fontFamily="@font/roboto"
+        android:text="@string/lbl_route_point_5"
+        android:textColor="#CAC4CF"
+        android:textFontWeight="400"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toStartOf="@+id/copyLocation_btn"
+        app:layout_constraintStart_toEndOf="@+id/card_route_img"
+        app:layout_constraintTop_toBottomOf="@+id/desc_route_point" />
+
+    <LinearLayout
+        android:id="@+id/markPoint_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginBottom="8dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_route_img">
+
+        <TextView
+            android:id="@+id/markPoint_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/roboto"
+            android:lineHeight="16sp"
+            android:text="@string/lbl_route_point_6"
+            android:textColor="#FDF8FD"
+            android:textFontWeight="400"
+            android:textSize="12sp" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/markPoint_btn"
+            style="@style/MarkPointButton"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_marginHorizontal="0dp"
+            android:layout_marginVertical="0dp"
+            android:layout_weight="0"
+            android:lineHeight="16sp"
+            android:paddingHorizontal="10dp"
+            android:text="@string/lbl_route_point_mark"
+            android:textFontWeight="400"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/finishPoint_img"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:elevation="3dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/icon_finish_point" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

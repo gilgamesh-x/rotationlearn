@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_btn_edit_route_point"
+        android:title="@string/menu_edit"
+        android:tooltipText="@string/menu_edit"
+        />
+    <item
+        android:id="@+id/menu_btn_delete_route"
+        android:title="@string/lbl_delete"
+        android:tooltipText="@string/lbl_delete" />
+</menu>

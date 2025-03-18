@@ -1,0 +1,56 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="Theme.MotoT" parent="Theme.Material3.Dark">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/moto_primary_dark</item>
+        <item name="colorPrimaryVariant">@color/moto_action_bar_dark</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <!--        <item name="colorOnPrimaryFixed">@color/white</item>-->
+        <!--        <item name="colorControlActivated">@color/white</item>-->
+        <!--        <item name="colorAccent">@color/white</item>-->
+        <!--        <item name="colorSurface">@color/white</item>-->
+        <!--        <item name="colorOnSurface">@color/white</item>-->
+        <!--        <item name="colorOnPrimaryFixedVariant">@color/white</item>-->
+        <!--        <item name="colorPrimaryContainer">@color/white</item>-->
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_700</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+        <item name="android:actionBarStyle">@style/Theme.MotoT.ActionBar</item>
+        <item name="actionBarStyle">@style/Theme.MotoT.ActionBar</item>
+        <item name="navigationViewStyle">@style/Theme.MotoT.ActionBar</item>
+        <item name="android:navigationBarColor">@color/moto_action_bar_dark</item>
+        <item name="android:windowIsTranslucent">false</item>
+
+        <item name="android:listDivider">@drawable/bg_border_grey</item>
+    </style>
+
+    <style name="Theme.MotoT.ActionBar" parent="Theme.Material3.Dark">
+        <item name="android:background">@color/moto_action_bar_dark</item>
+        <item name="android:height">@dimen/bar_height</item>
+        <item name="height">@dimen/bar_height</item>
+    </style>
+
+    <style name="Theme.MotoT.SideBar" parent="Theme.Material3.Dark">
+        <item name="android:listDivider">@color/mot_divide_side_bar</item>
+    </style>
+
+    <style name="Theme.MotoT.BottomBar" parent="Theme.Material3.Dark">
+        <item name="android:backgroundTint">@color/moto_action_bar_dark</item>
+    </style>
+
+    <style name="Theme.MotoT.Fab">
+        <item name="android:backgroundTint">@color/moto_primary_orange</item>
+        <item name="android:iconTint">@color/moto_action_bar_dark</item>
+        <item name="android:textColor">@color/moto_action_bar_dark</item>
+        <item name="android:tint">@color/moto_action_bar_dark</item>
+        <item name="tint">@color/moto_action_bar_dark</item>
+    </style>
+
+    <style name="Theme.MotoT.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Theme.MotoT.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+</resources>

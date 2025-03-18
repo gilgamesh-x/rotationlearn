@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".AppActivity">
+    <!--    <item-->
+    <!--        android:id="@+id/action_coin"-->
+    <!--        android:title="коины"-->
+    <!--        android:tooltipText="коины"-->
+    <!--        app:showAsAction="always"-->
+    <!--        />-->
+    <!--    />-->
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/action_notification"
+            android:icon="@drawable/bell"
+            android:title="@string/nav_notification"
+            app:showAsAction="always" />
+        <!-- <item
+            android:id="@+id/action_profile"
+            android:icon="@drawable/account_circle_filled_24px"
+            android:title="@string/act_title_profile"
+            app:showAsAction="always" />-->
+        <item
+            android:id="@+id/action_chat"
+            android:icon="@drawable/icon_forum"
+            android:title="@string/nav_msg"
+            app:showAsAction="always" />
+    </group>
+</menu>

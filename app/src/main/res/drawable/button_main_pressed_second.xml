@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item>
+        <shape>
+            <gradient
+                android:startColor="@color/moto_second_btn"
+                android:endColor="#FF87837E"
+                android:angle="180"
+                android:type="linear" />
+            <stroke android:width="0px" android:color="@color/moto_second_btn" />
+            <corners android:radius="12dp" />
+            <padding android:bottom="12dp" android:left="12dp" android:right="12dp" android:top="12dp" />
+        </shape>
+    </item>
+</layer-list>

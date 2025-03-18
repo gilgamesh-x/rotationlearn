@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu  xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.bottomNav.route.RouteCardActivity">
+    <item
+        android:id="@+id/menu_btn_like_route"
+        android:icon="@drawable/icon_bookmark_heart"
+        android:title="@string/menu_bookmark"
+        android:tooltipText="@string/menu_bookmark"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_btn_dislike_route"
+        android:icon="@drawable/icon_bookmark_heart_orange"
+        android:title="@string/menu_undo_bookmark"
+        android:tooltipText="@string/menu_undo_bookmark"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/menu_btn_edit_route"
+        android:title="@string/menu_edit"
+        android:tooltipText="@string/menu_edit" />
+    <item
+        android:id="@+id/menu_btn_delete_route"
+        android:title="@string/lbl_delete"
+        android:tooltipText="@string/lbl_delete" />
+    <item
+        android:id="@+id/action_complain_profile"
+        android:title="@string/menu_complain"
+        android:tooltipText="@string/menu_complain"
+        />
+</menu>

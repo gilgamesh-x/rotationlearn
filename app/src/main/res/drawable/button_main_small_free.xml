@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="@color/moto_primary_orange" />
+<!--            <stroke android:width="1px" android:color="@color/moto_primary_orange" />-->
+            <corners android:bottomLeftRadius="6dp" android:bottomRightRadius="6dp" android:topLeftRadius="6dp" android:topRightRadius="6dp" />
+            <padding android:bottom="6dp" android:left="6dp" android:right="6dp" android:top="6dp" />
+            <gradient android:angle="0" android:endColor="#FFCF53"
+                android:startColor="#FF7919" android:type="linear" />
+        </shape>
+    </item>
+</layer-list>

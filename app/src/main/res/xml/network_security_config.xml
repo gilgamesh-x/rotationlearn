@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+<domain-config>
+    <domain includeSubdomains="true">191.1.1.0</domain>
+    <domain includeSubdomains="true">127.0.0.1</domain>
+    <domain includeSubdomains="true">10.0.2.2</domain>
+    <domain includeSubdomains="true">192.168.0.200</domain>
+    <domain includeSubdomains="true">localhost</domain>
+    <domain includeSubdomains="true">51.250.65.156</domain>
+    <trust-anchors>
+        <certificates src="system" />
+        <certificates src="@raw/motohubrelease"/>
+        <certificates src="user" />
+    </trust-anchors>
+</domain-config>
+
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="@raw/motohubrelease"/>
+            <certificates src="system"/>
+        </trust-anchors>
+    </base-config>
+    <debug-overrides>
+        <trust-anchors>
+            <certificates src="@raw/motohubrelease"/>
+        </trust-anchors>
+    </debug-overrides>
+
+</network-security-config>

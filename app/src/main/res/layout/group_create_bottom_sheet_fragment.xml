@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingHorizontal="16dp"
+    android:paddingVertical="16dp"
+    tools:context=".AppActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_avatar"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:elevation="4dp"
+            android:src="@drawable/image_group_motor"
+            app:civ_border_color="#859E00FF"
+            app:civ_border_width="1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_image_gray"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:elevation="5dp"
+            android:src="@drawable/circle_gray"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image_avatar"
+            app:layout_constraintStart_toStartOf="@+id/profile_image_avatar"
+            app:layout_constraintTop_toTopOf="@+id/profile_image_avatar" />
+
+        <ImageButton
+            android:id="@+id/changeImage_btn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@null"
+            android:clickable="true"
+            android:elevation="6dp"
+            android:importantForAccessibility="no"
+            android:src="@drawable/outline_edit_24_gray"
+            android:theme="@style/Theme.MotoT.Fab"
+            app:layout_constraintBottom_toBottomOf="@+id/profile_image_avatar"
+            app:layout_constraintEnd_toEndOf="@+id/profile_image_avatar"
+            app:layout_constraintStart_toStartOf="@+id/profile_image_avatar"
+            app:layout_constraintTop_toTopOf="@+id/profile_image_avatar"
+            app:tint="#FDF8FD" />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/groupName_layout"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/lbl_group_3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/profile_image_avatar">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/groupName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="50"
+                android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/groupDesc_layout"
+            style="@style/TextInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="@string/lbl_group_4"
+            app:counterMaxLength="2000"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/groupName_layout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/groupDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="2000"
+                android:maxLines="6"
+                android:scrollbars="vertical" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/createGroup_btn"
+            style="@style/MainButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:enabled="true"
+            android:text="@string/btn_create"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/groupDesc_layout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>
