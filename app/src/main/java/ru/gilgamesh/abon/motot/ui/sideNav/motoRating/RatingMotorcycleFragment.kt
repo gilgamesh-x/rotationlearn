@@ -94,14 +94,14 @@ class RatingMotorcycleFragment : Fragment() {
         val chipBrand: Chip = view.findViewById(R.id.chip1)
         chipBrand.setOnClickListener {
             adapter.clearItems()
-            viewModel.mode = 1
+            viewModel.setModeBrand()
             viewModel.getFirstPage()
         }
 
         val chip2025: Chip = view.findViewById(R.id.chip2)
         chip2025.setOnClickListener {
             adapter.clearItems()
-            viewModel.mode = 2
+            viewModel.setModeBrandModel()
             viewModel.getFirstPage()
         }
     }

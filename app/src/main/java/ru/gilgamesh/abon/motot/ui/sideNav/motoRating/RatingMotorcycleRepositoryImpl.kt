@@ -3,42 +3,58 @@ package ru.gilgamesh.abon.motot.ui.sideNav.motoRating
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.withContext
 import ru.gilgamesh.abon.motot.data.api.RatingApi
 import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler.RatingMotorcycleItem
 import java.util.stream.Collectors
 import javax.inject.Inject
 
-class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: RatingApi) : RatingMotorcycleRepository {
+class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: RatingApi) :
+    RatingMotorcycleRepository {
+
+    companion object {
+        const val PAGE_SIZE = 10
+    }
+
     private val _items = MutableLiveData<List<RatingMotorcycleItem>>()
     private var currentPage: Int = 0
     private var isLast: Boolean = false
 
-    override fun getBrandRatingFirst() {
-        isLast = false
-        currentPage = 0
-        getBrandRating()
+    override suspend fun getBrandRatingFirst() {
+        withContext(Dispatchers.IO) {
+            isLast = false
+            currentPage = 0
+            getBrandRating()
+        }
     }
 
-    override fun getBrandRatingNext() {
-        currentPage++
-        getBrandRating()
+    override suspend fun getBrandRatingNext() {
+        withContext(Dispatchers.IO) {
+            currentPage++
+            getBrandRating()
+        }
     }
 
-    override fun getBrandModelRatingFirst() {
-        isLast = false
-        currentPage = 0
-        getBrandModelRating()
+    override suspend fun getBrandModelRatingFirst() {
+        withContext(Dispatchers.IO) {
+            isLast = false
+            currentPage = 0
+            getBrandModelRating()
+        }
     }
 
-    override fun getBrandModelRatingNext() {
-        currentPage++
-        getBrandModelRating()
+    override suspend fun getBrandModelRatingNext() {
+        withContext(Dispatchers.IO) {
+            currentPage++
+            getBrandModelRating()
+        }
     }
 
-    private fun getBrandRating() {
-        try {
-            if (isLast) return
-            val response = ratingApi.getBrandRating(currentPage, 10).execute()
+    private suspend fun getBrandRating() {
+        if (isLast) return
+        runCatching {
+            val response = ratingApi.getBrandRating(currentPage, PAGE_SIZE)
             if (response.isSuccessful) {
                 _items.postValue(
                     response.body()?.content?.stream()?.map {
@@ -53,16 +69,17 @@ class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: 
             } else {
                 isLast = true
             }
-        } catch (e: Exception) {
-            Log.e("RatingMotorcycleRepository", e.toString())
+        }.onFailure {
+            Log.e("RatingMotorcycleRepository", it.toString())
         }
     }
 
 
-    private fun getBrandModelRating() {
-        try {
-            if (isLast) return
-            val response = ratingApi.getBrandModelRating(currentPage, 10).execute()
+    private suspend fun getBrandModelRating() {
+        if (isLast) return
+
+        runCatching {
+            val response = ratingApi.getBrandModelRating(currentPage, PAGE_SIZE)
             if (response.isSuccessful) {
                 _items.postValue(
                     response.body()?.content?.stream()?.map {
@@ -77,8 +94,8 @@ class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: 
             } else {
                 isLast = true
             }
-        } catch (e: Exception) {
-            Log.e("RatingMotorcycleRepository", e.toString())
+        }.onFailure {
+            Log.e("RatingMotorcycleRepository", it.toString())
         }
     }
 

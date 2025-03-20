@@ -5,8 +5,8 @@ import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler.RatingM
 
 interface RatingMotorcycleRepository {
     fun observeBrandRating() : LiveData<List<RatingMotorcycleItem>>
-    fun getBrandRatingFirst()
-    fun getBrandRatingNext()
-    fun getBrandModelRatingFirst()
-    fun getBrandModelRatingNext()
+    suspend fun getBrandRatingFirst()
+    suspend fun getBrandRatingNext()
+    suspend fun getBrandModelRatingFirst()
+    suspend fun getBrandModelRatingNext()
 }
