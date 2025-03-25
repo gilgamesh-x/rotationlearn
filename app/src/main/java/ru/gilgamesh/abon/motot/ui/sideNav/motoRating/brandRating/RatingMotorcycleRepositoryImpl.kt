@@ -1,4 +1,4 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import ru.gilgamesh.abon.motot.data.api.RatingApi
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler.RatingMotorcycleItem
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.recyclerViewRatingBrand.RatingMotorcycleItem
 import java.util.stream.Collectors
 import javax.inject.Inject
 
@@ -14,7 +14,7 @@ class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: 
     RatingMotorcycleRepository {
 
     companion object {
-        const val PAGE_SIZE = 10
+        const val PAGE_SIZE = 15
     }
 
     private val _items = MutableLiveData<List<RatingMotorcycleItem>>()
@@ -100,5 +100,7 @@ class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: 
     }
 
     override fun observeBrandRating(): LiveData<List<RatingMotorcycleItem>> = _items
-
+    override fun clear() {
+        _items.postValue(emptyList())
+    }
 }

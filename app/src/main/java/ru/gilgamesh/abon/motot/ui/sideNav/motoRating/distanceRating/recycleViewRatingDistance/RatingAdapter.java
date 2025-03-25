@@ -1,4 +1,4 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RecycleViewRating;
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -61,5 +61,14 @@ public class RatingAdapter extends RecyclerView.Adapter<RatingHolder> {
         int size = items.size();
         items.clear();
         notifyItemRangeRemoved(0, size);
+    }
+
+    public Long getContactId (int position) {
+        if (items == null || items.isEmpty()) return -1L;
+        int size = items.size();
+        if (position < size) {
+            return items.get(position).getContactId();
+        }
+        return -1L;
     }
 }

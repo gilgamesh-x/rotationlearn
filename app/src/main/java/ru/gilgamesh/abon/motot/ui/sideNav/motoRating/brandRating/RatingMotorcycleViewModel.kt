@@ -1,11 +1,11 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler.RatingMotorcycleItem
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.recyclerViewRatingBrand.RatingMotorcycleItem
 import javax.inject.Inject
 
 @HiltViewModel
@@ -56,5 +56,9 @@ class RatingMotorcycleViewModel @Inject constructor(
                 isLoading = false
             }
         }
+    }
+
+    fun clear() {
+        ratingMotorcycleRepository.clear()
     }
 }

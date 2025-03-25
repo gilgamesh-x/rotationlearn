@@ -1,4 +1,4 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RecycleViewRating;
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance;
 
 import android.graphics.Color;
 import android.graphics.LinearGradient;

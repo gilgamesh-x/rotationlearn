@@ -1,5 +1,6 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,13 +16,15 @@ import dagger.hilt.android.AndroidEntryPoint
 import ru.gilgamesh.abon.motot.R
 import ru.gilgamesh.abon.motot.model.App
 import ru.gilgamesh.abon.motot.model.CustomGlideApp
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler.RatingMotorcycleAdapter
+import ru.gilgamesh.abon.motot.ui.profile.ProfileActivity
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.recyclerViewRatingBrand.RatingMotorcycleAdapter
 
 @AndroidEntryPoint
 class RatingMotorcycleFragment : Fragment() {
 
     companion object {
         fun newInstance() = RatingMotorcycleFragment()
+        const val ADAPTER_ITEM_REFRESH = 5
     }
 
     private val viewModel: RatingMotorcycleViewModel by viewModels()
@@ -35,17 +38,26 @@ class RatingMotorcycleFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val avatar: ImageView = view.findViewById<ImageView>(R.id.img_profile_avatar)
+        val avatar: ImageView = view.findViewById(R.id.img_profile_avatar)
         if (App.contactInfo != null) {
             if (App.contactInfo.miniAvatarId != null) {
                 CustomGlideApp.getContactImageByIdByte(
-                    avatar.context,
-                    App.contactInfo.miniAvatarId,
-                    avatar
+                    avatar.context, App.contactInfo.miniAvatarId, avatar
                 )
             } else {
                 avatar.setImageResource(CustomGlideApp.getDefaultAvatarBySexResId(App.contactInfo.sex))
             }
+        }
+
+        avatar.setOnClickListener {
+            if (App.checkGuestRolePopup(
+                    context,
+                    parentFragmentManager
+                )
+            ) return@setOnClickListener
+
+            val intent = Intent(requireContext(), ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         val nickname: TextView = view.findViewById(R.id.nickname)
@@ -54,12 +66,12 @@ class RatingMotorcycleFragment : Fragment() {
             nickname.text = App.contactInfo.nickName
             if (App.contactInfo.motoBrand != null && App.contactInfo.motoBrand.isNotEmpty()) {
                 if (App.contactInfo.motoModel != null && App.contactInfo.motoModel.isNotEmpty()) {
-                    motorcycle.text = App.contactInfo.motoBrand + " " + App.contactInfo.motoModel
+                    motorcycle.text = "${App.contactInfo.motoBrand} ${App.contactInfo.motoModel}"
                 } else {
                     motorcycle.text = App.contactInfo.motoBrand
                 }
             } else {
-                motorcycle.text = ""
+                motorcycle.text = getString(R.string.lbl_rating_3)
             }
         } else {
             nickname.text = ""
@@ -77,7 +89,9 @@ class RatingMotorcycleFragment : Fragment() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
                 val layoutManager = recyclerView.layoutManager as LinearLayoutManager?
-                if (layoutManager != null && layoutManager.findLastCompletelyVisibleItemPosition() >= adapter.itemCount - 5) {
+                if (layoutManager != null &&
+                    layoutManager.findLastCompletelyVisibleItemPosition() >= adapter.itemCount - ADAPTER_ITEM_REFRESH
+                ) {
                     viewModel.getNextPage()
                 }
             }
@@ -104,5 +118,10 @@ class RatingMotorcycleFragment : Fragment() {
             viewModel.setModeBrandModel()
             viewModel.getFirstPage()
         }
+    }
+
+    override fun onDestroyView() {
+        viewModel.clear()
+        super.onDestroyView()
     }
 }

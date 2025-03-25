@@ -12,30 +12,30 @@ import ru.gilgamesh.abon.motot.payload.response.rating.PageableRatingItem
 interface RatingApi {
     @GET("api/rating/getDistanceRating")
     @Headers("Content-Type: application/json;charset=UTF-8")
-    fun getDistanceRating(
-        @Query("pageNumber") pageNumber: Int?,
+    suspend fun getDistanceRating(
+        @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int?
-    ): Call<PageableRatingItem?>?
+    ): Response<PageableRatingItem?>
 
     @GET("api/rating/getDistanceRatingByYear")
     @Headers("Content-Type: application/json;charset=UTF-8")
-    fun getDistanceRatingByYear(
-        @Query("pageNumber") pageNumber: Int?,
+    suspend fun getDistanceRatingByYear(
+        @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int?,
-        @Query("year") year: Int?
-    ): Call<PageableRatingItem?>?
+        @Query("year") year: Int
+    ): Response<PageableRatingItem?>
 
     @GET("api/rating/getBrandRating")
     @Headers("Content-Type: application/json;charset=UTF-8")
     suspend fun getBrandRating(
-        @Query("pageNumber") pageNumber: Int?,
+        @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int?
     ): Response<PageableBrandRatingResponse?>
 
     @GET("api/rating/getBrandModelRating")
     @Headers("Content-Type: application/json;charset=UTF-8")
     suspend fun getBrandModelRating(
-        @Query("pageNumber") pageNumber: Int?,
+        @Query("pageNumber") pageNumber: Int,
         @Query("pageSize") pageSize: Int?
     ): Response<PageableBrandModelRatingResponse?>
 }

@@ -1,4 +1,4 @@
-package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.RVRatingMotorcycler
+package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.recyclerViewRatingBrand
 
 import android.graphics.LinearGradient
 import android.graphics.Shader
@@ -7,10 +7,13 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import androidx.appcompat.content.res.AppCompatResources
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.graphics.toColorInt
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import ru.gilgamesh.abon.motot.R
+import ru.gilgamesh.abon.motot.model.App
 
 class RatingMotorcycleAdapter(private var items: MutableList<RatingMotorcycleItem>) :
     RecyclerView.Adapter<RatingMotorcycleAdapter.ItemViewHolder>() {
@@ -21,6 +24,7 @@ class RatingMotorcycleAdapter(private var items: MutableList<RatingMotorcycleIte
         val modelText: TextView = view.findViewById(R.id.model_text)
         val countText: TextView = view.findViewById(R.id.count_text)
         val progressBar: ProgressBar = view.findViewById(R.id.progressBar)
+        val mainLayout: ConstraintLayout = itemView.findViewById(R.id.mainLayout);
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
@@ -71,6 +75,30 @@ class RatingMotorcycleAdapter(private var items: MutableList<RatingMotorcycleIte
         } else {
             holder.progressBar.isVisible = false
         }
+
+        var isDrawBg: Boolean = false
+        if (App.contactInfo == null || App.contactInfo.motoBrand.isNullOrEmpty()) isDrawBg = false
+        else {
+            if (items[position].brand.isNotEmpty() && !items[position].model.isNullOrEmpty()) {
+                isDrawBg = (items[position].brand == App.contactInfo.motoBrand
+                        && items[position].model == App.contactInfo.motoModel)
+            } else if (items[position].brand.isNotEmpty()) {
+                isDrawBg = (items[position].brand == App.contactInfo.motoBrand)
+            } else isDrawBg = false
+        }
+
+
+        if (isDrawBg) {
+            holder.mainLayout.background = AppCompatResources.getDrawable(
+                holder.itemView.context,
+                R.drawable.background_radius_8_rating_me
+            )
+        } else {
+            holder.mainLayout.background = AppCompatResources.getDrawable(
+                holder.itemView.context,
+                R.drawable.background_radius_8_rating
+            )
+        }
     }
 
     override fun getItemCount(): Int = items.size
@@ -82,6 +110,7 @@ class RatingMotorcycleAdapter(private var items: MutableList<RatingMotorcycleIte
     }
 
     fun addItems(newItems: List<RatingMotorcycleItem>) {
+        if (newItems.isEmpty()) return
         val start = items.size
         items.addAll(newItems)
         maxCount = items[0].id
