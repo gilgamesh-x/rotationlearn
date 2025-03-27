@@ -10,12 +10,9 @@ import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.recyclerViewRat
 import java.util.stream.Collectors
 import javax.inject.Inject
 
+private const val PAGE_SIZE = 15
 class RatingMotorcycleRepositoryImpl @Inject constructor(private val ratingApi: RatingApi) :
     RatingMotorcycleRepository {
-
-    companion object {
-        const val PAGE_SIZE = 15
-    }
 
     private val _items = MutableLiveData<List<RatingMotorcycleItem>>()
     private var currentPage: Int = 0

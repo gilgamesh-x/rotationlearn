@@ -12,6 +12,7 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
 import dagger.hilt.android.AndroidEntryPoint
 import ru.gilgamesh.abon.motot.R
 import ru.gilgamesh.abon.motot.model.App
@@ -105,18 +106,17 @@ class RatingMotorcycleFragment : Fragment() {
 
         viewModel.getFirstPage()
 
-        val chipBrand: Chip = view.findViewById(R.id.chip1)
-        chipBrand.setOnClickListener {
-            adapter.clearItems()
-            viewModel.setModeBrand()
-            viewModel.getFirstPage()
-        }
-
-        val chip2025: Chip = view.findViewById(R.id.chip2)
-        chip2025.setOnClickListener {
-            adapter.clearItems()
-            viewModel.setModeBrandModel()
-            viewModel.getFirstPage()
+        val chipGroup: ChipGroup = view.findViewById(R.id.chipGroup)
+        chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            if (checkedIds.first() == R.id.chip1) {
+                adapter.clearItems()
+                viewModel.setModeBrand()
+                viewModel.getFirstPage()
+            } else if (checkedIds.first() == R.id.chip2) {
+                adapter.clearItems()
+                viewModel.setModeBrandModel()
+                viewModel.getFirstPage()
+            }
         }
     }
 

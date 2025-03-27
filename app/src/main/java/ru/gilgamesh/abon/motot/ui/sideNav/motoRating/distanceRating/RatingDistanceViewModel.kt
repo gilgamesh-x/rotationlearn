@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import ru.gilgamesh.abon.motot.model.App
 import javax.inject.Inject
 
 @HiltViewModel
@@ -17,96 +18,112 @@ class RatingDistanceViewModel @Inject constructor(
     private val _uiState = MutableStateFlow(RatingDistanceState())
     val uiState: StateFlow<RatingDistanceState> = _uiState.asStateFlow()
 
-    private var yearMode: Int = 0
-    private var isLoading: Boolean = false
+    private val _uiStateProfile = MutableStateFlow(RatingDistanceStateProfile())
+    val uiStateProfile: StateFlow<RatingDistanceStateProfile> = _uiStateProfile.asStateFlow()
 
     /*init {
-        getFirstPage()
+        loadProfile()
     }*/
 
     private fun getFirstPage() {
-        if (isLoading) return
-        isLoading = true
+        if (_uiState.value.contentState is RatingDistanceLCEState.Loading) return
         viewModelScope.launch {
-            _uiState.update { it.copy(loading = true, items = emptyList(), error = "") }
+            _uiState.update {
+                it.copy(contentState = RatingDistanceLCEState.Loading)
+            }
             runCatching {
-                if (yearMode == 0) {
+                if (_uiState.value.yearMode == 0) {
                     _uiState.update {
                         it.copy(
-                            items = ratingDistanceRepository.getRatingFirst(),
-                            loading = false,
-                            error = ""
+                            contentState = RatingDistanceLCEState.Content(ratingDistanceRepository.getRatingFirst())
                         )
                     }
-                    isLoading = false
                 } else {
                     _uiState.update {
                         it.copy(
-                            items = ratingDistanceRepository.getRatingByYearFirst(yearMode),
-                            loading = false,
-                            error = ""
+                            contentState = RatingDistanceLCEState.Content(
+                                ratingDistanceRepository.getRatingByYearFirst(
+                                    _uiState.value.yearMode
+                                )
+                            )
                         )
                     }
-                    isLoading = false
                 }
             }.onFailure {
-                _uiState.update { it.copy(error = it.toString(), items = emptyList()) }
-            }.onSuccess {
-                _uiState.update { it.copy(loading = false, error = "", items = emptyList()) }
-            }
+                _uiState.update {
+                    it.copy(contentState = RatingDistanceLCEState.Error(it.toString()))
+                }
+
+            }.onSuccess {}
         }
     }
 
     private fun getNextPage() {
-        if (isLoading) return
-        isLoading = true
+        if (_uiState.value.contentState is RatingDistanceLCEState.Loading) return
         viewModelScope.launch {
-            _uiState.update { it.copy(loading = true, items = emptyList(), error = "") }
+            _uiState.update {
+                it.copy(contentState = RatingDistanceLCEState.Loading)
+            }
             runCatching {
-                if (yearMode == 0) {
+                if (_uiState.value.yearMode == 0) {
                     _uiState.update {
                         it.copy(
-                            items = ratingDistanceRepository.getRatingNext(),
-                            loading = false,
-                            error = ""
+                            contentState = RatingDistanceLCEState.Content(ratingDistanceRepository.getRatingNext())
                         )
                     }
-
-                    isLoading = false
                 } else {
                     _uiState.update {
                         it.copy(
-                            items = ratingDistanceRepository.getRatingByYearNext(yearMode),
-                            loading = false,
-                            error = ""
+                            contentState = RatingDistanceLCEState.Content(
+                                ratingDistanceRepository.getRatingByYearNext(
+                                    _uiState.value.yearMode
+                                )
+                            )
                         )
                     }
-
-                    isLoading = false
                 }
             }.onFailure {
-                _uiState.update { it.copy(error = it.toString(), items = emptyList()) }
-            }.onSuccess {
-                _uiState.update { it.copy(loading = false, error = "", items = emptyList()) }
-            }
+                _uiState.update {
+                    it.copy(contentState = RatingDistanceLCEState.Error(it.toString()))
+                }
+            }.onSuccess {}
         }
     }
 
     fun handleIntent(intent: RatingDistanceIntent) {
         when (intent) {
             is RatingDistanceIntent.LoadFirstPageByYear -> {
-                yearMode = intent.year
+                _uiState.value.yearMode = intent.year
                 getFirstPage()
             }
 
             is RatingDistanceIntent.LoadFirstPageCurrentYear -> {
-                yearMode = 0
+                _uiState.value.yearMode = 0
                 getFirstPage()
             }
 
             is RatingDistanceIntent.LoadNextPage -> {
                 getNextPage()
             }
+
+            is RatingDistanceIntent.LoadProfile -> {
+                loadProfile()
+            }
+        }
+    }
+
+    private fun loadProfile() {
+        viewModelScope.launch {
+            if (App.contactInfo != null) {
+                _uiStateProfile.value.miniAvatarId = App.contactInfo.miniAvatarId
+                _uiStateProfile.value.sex = App.contactInfo.sex
+                _uiStateProfile.value.nickName = App.contactInfo.nickName ?: ""
+                _uiStateProfile.value.motorcycle =
+                    "${App.contactInfo.motoBrand ?: ""} ${App.contactInfo.motoModel ?: ""}"
+                _uiStateProfile.value.distance = App.contactInfo.distance?.toInt() ?: 0
+            }
+
+            _uiStateProfile.update { it.copy(contentState = RatingDistanceLCEStateProfile.Content) }
         }
     }
 }

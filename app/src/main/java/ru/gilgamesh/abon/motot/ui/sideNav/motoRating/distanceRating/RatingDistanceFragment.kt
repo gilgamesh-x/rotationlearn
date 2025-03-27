@@ -10,6 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.core.graphics.toColorInt
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -26,17 +27,18 @@ import ru.gilgamesh.abon.motot.model.CustomGlideApp
 import ru.gilgamesh.abon.motot.ui.profile.EnemyProfileActivity
 import ru.gilgamesh.abon.motot.ui.profile.ProfileActivity
 import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.brandRating.RatingMotorcycleFragment
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance.RatingAdapter
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance.RatingDistanceListAdapter
+import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance.RatingItem
 
 @AndroidEntryPoint
-class RatingDistanceFragment : Fragment() {
+class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClickListener {
     private var _binding: FragmentRatingDistanceBinding? = null
     private val binding get() = _binding!!
-    private var adapter: RatingAdapter? = null
+    private var adapter: RatingDistanceListAdapter? = null
 
     companion object {
         fun newInstance() = RatingDistanceFragment()
-        const val ADAPTER_ITEM_REFRESH = 5
+        private const val ADAPTER_ITEM_REFRESH = 5
     }
 
     override fun onDestroyView() {
@@ -57,53 +59,8 @@ class RatingDistanceFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        if (App.contactInfo != null) {
-            if (App.contactInfo.miniAvatarId != null) {
-                CustomGlideApp.getContactImageByIdByte(
-                    binding.imgProfileAvatar.context,
-                    App.contactInfo.miniAvatarId,
-                    binding.imgProfileAvatar
-                )
-            } else {
-                binding.imgProfileAvatar.setImageResource(
-                    CustomGlideApp.getDefaultAvatarBySexResId(App.contactInfo.sex)
-                )
-            }
-        }
-
         binding.imgProfileAvatar.setOnClickListener {
-            if (App.checkGuestRolePopup(
-                    context, parentFragmentManager
-                )
-            ) return@setOnClickListener
-            val intent = Intent(requireContext(), ProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        if (App.contactInfo != null) {
-            binding.nickname.text = App.contactInfo.nickName
-            if (App.contactInfo.motoBrand != null && App.contactInfo.motoBrand.isNotEmpty()) {
-                if (App.contactInfo.motoModel != null && App.contactInfo.motoModel.isNotEmpty()) {
-                    binding.motorcycle.text =
-                        "${App.contactInfo.motoBrand} ${App.contactInfo.motoModel}"
-                } else {
-                    binding.motorcycle.text = App.contactInfo.motoBrand
-                }
-            } else {
-                binding.motorcycle.text = ""
-            }
-        } else {
-            binding.nickname.text = ""
-            binding.motorcycle.text = ""
-        }
-
-        if (App.contactInfo == null || App.contactInfo.distance == null) {
-            binding.distanceTextView.text =
-                String.format(getString(R.string.dynamic_profile_distance_1), 0)
-        } else {
-            binding.distanceTextView.text = String.format(
-                getString(R.string.dynamic_profile_distance_1), App.contactInfo.distance.toInt()
-            )
+            gotoProfile()
         }
 
         val shader: Shader = LinearGradient(
@@ -122,31 +79,7 @@ class RatingDistanceFragment : Fragment() {
 
         //viewModel = ViewModelProvider(this).get(ItemViewModel::class.java)
 
-        adapter =
-            RatingAdapter(
-                mutableListOf(),
-                RatingAdapter.OnItemClickListener { _view, position ->
-                    val contactId: Long? = adapter?.getContactId(position)
-                    if (contactId != null) {
-                        if (contactId > 0) {
-                            if (App.checkGuestRolePopup(
-                                    context, parentFragmentManager
-                                )
-                            ) return@OnItemClickListener
-
-                            if (App.contactEqual(contactId)) {
-                                startActivity(Intent(this.context, ProfileActivity::class.java))
-                            } else {
-                                val intent = Intent(
-                                    this.context, EnemyProfileActivity::class.java
-                                )
-                                intent.putExtra("prevActivity", "RatingDistanceFragment")
-                                intent.putExtra("contactId", contactId)
-                                startActivity(intent)
-                            }
-                        }
-                    }
-                })
+        adapter = RatingDistanceListAdapter(this)
         recyclerView.adapter = adapter
         recyclerView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -162,38 +95,114 @@ class RatingDistanceFragment : Fragment() {
 
         viewLifecycleOwner.lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
+                viewModel.uiStateProfile.collect { state ->
+                    updateUIProfile(state)
+                }
+            }
+        }
+        viewModel.handleIntent(RatingDistanceIntent.LoadProfile)
+
+        viewLifecycleOwner.lifecycleScope.launch {
+            repeatOnLifecycle(Lifecycle.State.STARTED) {
                 viewModel.uiState.collect { state ->
                     updateUI(state)
                 }
             }
         }
-
         viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
 
-        binding.chip2024.setOnClickListener {
-            adapter?.clearItems()
-            viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageByYear(2024))
-        }
-
-        binding.chip2025.setOnClickListener {
-            adapter?.clearItems()
-            viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
+        binding.chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
+            if (checkedIds.first() == binding.chip2024.id) {
+                adapter?.clearItems()
+                viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageByYear(2024))
+            } else if (checkedIds.first() == binding.chip2025.id) {
+                adapter?.clearItems()
+                viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
+            }
         }
     }
 
     private fun updateUI(state: RatingDistanceState) {
-        if (state.loading) {
-            Log.d("RatingDistanceFragment", "updateUI: state.loading")
-        }
-        if (state.error.isNotEmpty()) {
-            Log.e("RatingDistanceFragment", "updateUI: " + state.error.toString())
-            Toast.makeText(requireContext(), getString(R.string.httpall), Toast.LENGTH_SHORT).show()
-        }
+        when (state.contentState) {
 
-        state.items?.let {
-            if (it.isNotEmpty()) {
-                adapter?.addItems(state.items)
+            is RatingDistanceLCEState.Content -> {
+                binding.progressBar.isVisible = false
+                state.contentState.data?.let {
+                    if (it.isNotEmpty()) {
+                        adapter?.addItems(it)
+                    }
+                }
             }
+
+            is RatingDistanceLCEState.Error -> {
+                binding.progressBar.isVisible = false
+                Log.e("RatingDistanceFragment", "Error: " + state.contentState.message)
+                Toast.makeText(requireContext(), getString(R.string.httpall), Toast.LENGTH_SHORT)
+                    .show()
+            }
+
+            is RatingDistanceLCEState.Loading -> {
+                binding.progressBar.isVisible = true
+            }
+
+            null -> {}
+        }
+    }
+
+    private fun updateUIProfile(state: RatingDistanceStateProfile) {
+        when (state.contentState) {
+            RatingDistanceLCEStateProfile.Content -> {
+                if (state.miniAvatarId != null) {
+                    CustomGlideApp.getContactImageByIdByte(
+                        binding.imgProfileAvatar.context,
+                        state.miniAvatarId,
+                        binding.imgProfileAvatar
+                    )
+                } else {
+                    binding.imgProfileAvatar.setImageResource(
+                        CustomGlideApp.getDefaultAvatarBySexResId(state.sex)
+                    )
+                }
+                binding.nickname.text = state.nickName
+                binding.motorcycle.text = state.motorcycle
+                binding.distanceTextView.text = String.format(
+                    getString(R.string.dynamic_profile_distance_1), state.distance
+                )
+            }
+
+            is RatingDistanceLCEStateProfile.Error -> {}
+            RatingDistanceLCEStateProfile.Loading -> {}
+            null -> {}
+        }
+    }
+
+    private fun gotoProfile() {
+        if (App.checkGuestRolePopup(
+                context, parentFragmentManager
+            )
+        ) return
+        val intent = Intent(requireContext(), ProfileActivity::class.java)
+        startActivity(intent)
+    }
+
+    private fun gotoEnemyProfile(contactId: Long) {
+        if (App.checkGuestRolePopup(
+                context, parentFragmentManager
+            )
+        ) return
+        val intent = Intent(
+            this.context, EnemyProfileActivity::class.java
+        )
+        intent.putExtra("prevActivity", "RatingDistanceFragment")
+        intent.putExtra("contactId", contactId)
+        startActivity(intent)
+    }
+
+    override fun onItemClick(item: RatingItem) {
+        if (App.contactEqual(item.contactId)) {
+            gotoProfile()
+        } else {
+            gotoEnemyProfile(item.contactId)
         }
     }
 }
