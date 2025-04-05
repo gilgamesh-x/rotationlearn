@@ -1,73 +1,26 @@
 package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating
 
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
 import ru.gilgamesh.abon.motot.data.api.RatingApi
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance.RatingItem
+import ru.gilgamesh.abon.motot.payload.response.rating.PageableRatingItem
 import javax.inject.Inject
 
 private const val PAGE_SIZE = 15
 class RatingDistanceRepositoryImpl @Inject constructor(private val ratingApi: RatingApi) :
     RatingDistanceRepository {
 
-    private var currentPage: Int = 0
-    private var isLast: Boolean = false
-
-    override suspend fun getRatingFirst(): List<RatingItem>? {
-        isLast = false
-        currentPage = 0
-        return withContext(Dispatchers.IO) {
-            return@withContext getDistanceRating()
-        }
-    }
-
-    override suspend fun getRatingNext(): List<RatingItem>? {
-        currentPage++
-        return withContext(Dispatchers.IO) {
-            return@withContext getDistanceRating()
-        }
-    }
-
-    override suspend fun getRatingByYearFirst(year: Int): List<RatingItem>? {
-        isLast = false
-        currentPage = 0
-        return withContext(Dispatchers.IO) {
-            return@withContext getDistanceRatingByYear(year)
-        }
-    }
-
-    override suspend fun getRatingByYearNext(year: Int): List<RatingItem>? {
-        currentPage++
-        return withContext(Dispatchers.IO) {
-            return@withContext getDistanceRatingByYear(year)
-        }
-    }
-
-    private suspend fun getDistanceRating(): List<RatingItem>? {
-        if (isLast) return null
+    override suspend fun getDistanceRating(page: Int): PageableRatingItem? {
         runCatching {
-            val response = ratingApi.getDistanceRating(currentPage, PAGE_SIZE)
-            isLast = if (response.isSuccessful) {
-                response.body()?.last ?: true
-            } else {
-                true
-            }
-            return response.body()?.content
+            val response = ratingApi.getDistanceRating(page, PAGE_SIZE)
+            return response.body()
         }
         return null
     }
 
 
-    private suspend fun getDistanceRatingByYear(year: Int): List<RatingItem>? {
-        if (isLast) return null
+    override suspend fun getDistanceRatingByYear(page: Int, year: Int): PageableRatingItem? {
         runCatching {
-            val response = ratingApi.getDistanceRatingByYear(currentPage, PAGE_SIZE, year)
-            isLast = if (response.isSuccessful) {
-                response.body()?.last ?: true
-            } else {
-                true
-            }
-            return response.body()?.content
+            val response = ratingApi.getDistanceRatingByYear(page, PAGE_SIZE, year)
+            return response.body()
         }
         return null
     }

@@ -39,6 +39,7 @@ class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClick
     companion object {
         fun newInstance() = RatingDistanceFragment()
         private const val ADAPTER_ITEM_REFRESH = 5
+        private const val YEAR_2024 = 2024
     }
 
     override fun onDestroyView() {
@@ -112,12 +113,13 @@ class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClick
         viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
 
         binding.chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
-            if (checkedIds.first() == binding.chip2024.id) {
-                adapter?.clearItems()
-                viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageByYear(2024))
-            } else if (checkedIds.first() == binding.chip2025.id) {
-                adapter?.clearItems()
-                viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
+            when (checkedIds.first()) {
+                binding.chip2024.id -> {
+                    viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageByYear(YEAR_2024))
+                }
+                binding.chip2025.id -> {
+                    viewModel.handleIntent(RatingDistanceIntent.LoadFirstPageCurrentYear)
+                }
             }
         }
     }
@@ -127,9 +129,9 @@ class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClick
 
             is RatingDistanceLCEState.Content -> {
                 binding.progressBar.isVisible = false
-                state.contentState.data?.let {
+                state.contentState.data.let {
                     if (it.isNotEmpty()) {
-                        adapter?.addItems(it)
+                        adapter?.submitList(it)
                     }
                 }
             }
@@ -144,35 +146,35 @@ class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClick
             is RatingDistanceLCEState.Loading -> {
                 binding.progressBar.isVisible = true
             }
-
-            null -> {}
         }
     }
 
     private fun updateUIProfile(state: RatingDistanceStateProfile) {
         when (state.contentState) {
             RatingDistanceLCEStateProfile.Content -> {
-                if (state.miniAvatarId != null) {
-                    CustomGlideApp.getContactImageByIdByte(
-                        binding.imgProfileAvatar.context,
-                        state.miniAvatarId,
-                        binding.imgProfileAvatar
-                    )
-                } else {
-                    binding.imgProfileAvatar.setImageResource(
-                        CustomGlideApp.getDefaultAvatarBySexResId(state.sex)
+                with (binding) {
+                    if (state.miniAvatarId != null) {
+                        CustomGlideApp.getContactImageByIdByte(
+                            imgProfileAvatar.context,
+                            state.miniAvatarId,
+                            imgProfileAvatar
+                        )
+                    } else {
+                        imgProfileAvatar.setImageResource(
+                            CustomGlideApp.getDefaultAvatarBySexResId(state.sex)
+                        )
+                    }
+                    nickname.text = state.nickName
+                    motorcycle.text = state.motorcycle
+                    distanceTextView.text = String.format(
+                        getString(R.string.dynamic_profile_distance_1), state.distance
                     )
                 }
-                binding.nickname.text = state.nickName
-                binding.motorcycle.text = state.motorcycle
-                binding.distanceTextView.text = String.format(
-                    getString(R.string.dynamic_profile_distance_1), state.distance
-                )
             }
 
-            is RatingDistanceLCEStateProfile.Error -> {}
-            RatingDistanceLCEStateProfile.Loading -> {}
-            null -> {}
+            is RatingDistanceLCEStateProfile.Error -> Unit
+            RatingDistanceLCEStateProfile.Loading -> Unit
+            null -> Unit
         }
     }
 
@@ -190,12 +192,14 @@ class RatingDistanceFragment : Fragment(), RatingDistanceListAdapter.OnItemClick
                 context, parentFragmentManager
             )
         ) return
-        val intent = Intent(
+
+        Intent(
             this.context, EnemyProfileActivity::class.java
-        )
-        intent.putExtra("prevActivity", "RatingDistanceFragment")
-        intent.putExtra("contactId", contactId)
-        startActivity(intent)
+        ).apply {
+            putExtra("prevActivity", "RatingDistanceFragment")
+            putExtra("contactId", contactId)
+            startActivity(this)
+        }
     }
 
     override fun onItemClick(item: RatingItem) {

@@ -108,14 +108,17 @@ class RatingMotorcycleFragment : Fragment() {
 
         val chipGroup: ChipGroup = view.findViewById(R.id.chipGroup)
         chipGroup.setOnCheckedStateChangeListener { _, checkedIds ->
-            if (checkedIds.first() == R.id.chip1) {
-                adapter.clearItems()
-                viewModel.setModeBrand()
-                viewModel.getFirstPage()
-            } else if (checkedIds.first() == R.id.chip2) {
-                adapter.clearItems()
-                viewModel.setModeBrandModel()
-                viewModel.getFirstPage()
+            when (checkedIds.first()) {
+                R.id.chip1 -> {
+                    adapter.clearItems()
+                    viewModel.setModeBrand()
+                    viewModel.getFirstPage()
+                }
+                R.id.chip2 -> {
+                    adapter.clearItems()
+                    viewModel.setModeBrandModel()
+                    viewModel.getFirstPage()
+                }
             }
         }
     }

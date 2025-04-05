@@ -1,10 +1,8 @@
 package ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating
 
-import ru.gilgamesh.abon.motot.ui.sideNav.motoRating.distanceRating.recycleViewRatingDistance.RatingItem
+import ru.gilgamesh.abon.motot.payload.response.rating.PageableRatingItem
 
 interface RatingDistanceRepository {
-    suspend fun getRatingFirst(): List<RatingItem>?
-    suspend fun getRatingNext(): List<RatingItem>?
-    suspend fun getRatingByYearFirst(year: Int): List<RatingItem>?
-    suspend fun getRatingByYearNext(year: Int): List<RatingItem>?
+    suspend fun getDistanceRating(page: Int): PageableRatingItem?
+    suspend fun getDistanceRatingByYear(page: Int, year: Int): PageableRatingItem?
 }

@@ -28,16 +28,6 @@ class RatingDistanceListAdapter(
     override fun onBindViewHolder(holder: RatingHolder, position: Int) {
         holder.bind(getItem(position), position)
     }
-
-    fun addItems(newItems: List<RatingItem>) {
-        val currentList = currentList.toMutableList()
-        currentList.addAll(newItems)
-        submitList(currentList)
-    }
-
-    fun clearItems() {
-        submitList(emptyList())
-    }
 }
 
 class ItemDiffCallback : DiffUtil.ItemCallback<RatingItem>() {
@@ -46,6 +36,6 @@ class ItemDiffCallback : DiffUtil.ItemCallback<RatingItem>() {
     }
 
     override fun areContentsTheSame(oldItem: RatingItem, newItem: RatingItem): Boolean {
-        return oldItem.contactId == newItem.contactId
+        return oldItem.distance == newItem.distance
     }
 }
