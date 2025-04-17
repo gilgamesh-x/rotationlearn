@@ -3,6 +3,7 @@ package ru.gilgamesh.abon.motot.ui.profile.enemyProfile
 import money.vivid.elmslie.core.store.StateReducer
 import ru.gilgamesh.abon.motot.payload.response.contact.UserAchievementResponse
 import ru.gilgamesh.abon.motot.ui.bottomNav.chat.ChatCardActivity
+import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadPhotoGallery
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadProfile
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadUserCoverImg
@@ -192,7 +193,7 @@ class EnemyProfileReducer :
                     copy(photoGalleryIds = event.listIds)
                 }
                 effects {
-                    +EnemyProfileEffect.LoadPhotoGallery(state.photoGalleryIds)
+                    +EnemyProfileEffect.LoadPhotoGallery(state.photoGalleryIds.stream().map { ItemImg(it.id) }.toList())
                 }
             }
 

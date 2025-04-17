@@ -3,6 +3,7 @@ package ru.gilgamesh.abon.motot.ui.profile.enemyProfile
 import ru.gilgamesh.abon.motot.payload.response.IdentifierResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserAchievementResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserInfoApi
+import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
 
 sealed class EnemyProfileEffect {
     object ShowError : EnemyProfileEffect()
@@ -11,7 +12,7 @@ sealed class EnemyProfileEffect {
     data class LoadAvatarBySex(val sex: String) : EnemyProfileEffect()
     data class LoadCoverByGlide(val imgId: Long) : EnemyProfileEffect()
     object LoadCoverByRes : EnemyProfileEffect()
-    data class LoadPhotoGallery(val data: List<IdentifierResponse>) : EnemyProfileEffect()
+    data class LoadPhotoGallery(val data: List<ItemImg>) : EnemyProfileEffect()
     data class GotoFullSizeGallery(val data: List<IdentifierResponse>, val position: Int) :
         EnemyProfileEffect()
 

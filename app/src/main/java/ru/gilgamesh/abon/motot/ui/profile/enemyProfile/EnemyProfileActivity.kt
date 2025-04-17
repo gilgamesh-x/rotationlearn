@@ -40,6 +40,7 @@ import ru.gilgamesh.abon.motot.ui.bottomNav.chat.ChatCardActivity
 import ru.gilgamesh.abon.motot.ui.complain.ComplainBottomSheetFragment
 import ru.gilgamesh.abon.motot.ui.complain.ComplainTypeEnum
 import ru.gilgamesh.abon.motot.ui.profile.AchievementActivity
+import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
 import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.RecyclerViewImgGalleryAdapter
 import java.util.stream.Collectors
 
@@ -54,6 +55,9 @@ class EnemyProfileActivity : AppCompatActivity() {
             textUserName.resetLoader()
             textUserNickName.resetLoader()
             enmProfileCountSubscribers.resetLoader()
+            enmProfileCountSubscriptions.resetLoader()
+            enmProfileCountRoute.resetLoader()
+            enmCountCompetition.resetLoader()
             textPilotMoto.resetLoader()
             enmCountCompetition.isVisible = false
             enmProfileCountRoute.isVisible = false
@@ -200,7 +204,23 @@ class EnemyProfileActivity : AppCompatActivity() {
                 viewModel.sendEvent(EnemyProfileEvent.Ui.ClickShowMenu)
             })
 
-            achievementAllTv.setOnClickListener(View.OnClickListener { v: View? ->
+            iconAchRegFa.setOnClickListener(View.OnClickListener { v: View? ->
+                viewModel.sendEvent(EnemyProfileEvent.Ui.GotoAchievement)
+            })
+
+            iconAchRouteFa.setOnClickListener(View.OnClickListener { v: View? ->
+                viewModel.sendEvent(EnemyProfileEvent.Ui.GotoAchievement)
+            })
+
+            iconAchSubsFa.setOnClickListener(View.OnClickListener { v: View? ->
+                viewModel.sendEvent(EnemyProfileEvent.Ui.GotoAchievement)
+            })
+
+            iconAchKmFa.setOnClickListener(View.OnClickListener { v: View? ->
+                viewModel.sendEvent(EnemyProfileEvent.Ui.GotoAchievement)
+            })
+
+            iconAchEventFa.setOnClickListener(View.OnClickListener { v: View? ->
                 viewModel.sendEvent(EnemyProfileEvent.Ui.GotoAchievement)
             })
 
@@ -228,8 +248,8 @@ class EnemyProfileActivity : AppCompatActivity() {
     private fun goChatNew(lng: Long, string: String) {
         Intent(this@EnemyProfileActivity, ChatCardActivity::class.java).apply {
             putExtra("companionId", lng).putExtra(
-                    "chatName", string
-                )
+                "chatName", string
+            )
             putExtra("prevActivity", TAG)
             startActivity(this)
         }
@@ -238,17 +258,14 @@ class EnemyProfileActivity : AppCompatActivity() {
     private fun goChat(lng: Long, string: String) {
         Intent(this@EnemyProfileActivity, ChatCardActivity::class.java).apply {
             putExtra("chatId", lng).putExtra(
-                    "chatName", string
-                )
+                "chatName", string
+            )
             putExtra("prevActivity", TAG)
             startActivity(this)
         }
     }
 
     private fun unsubscribed(count: Int) {
-        App.contactInfo?.let {
-            App.contactInfo.countSubscriptions--
-        }
         with(binding) {
             enmProfileCountSubscribers.text = String.format(
                 getString(
@@ -261,9 +278,6 @@ class EnemyProfileActivity : AppCompatActivity() {
     }
 
     private fun subscribed(count: Int) {
-        App.contactInfo?.let {
-            App.contactInfo.countSubscriptions++
-        }
         with(binding) {
             enmProfileCountSubscribers.text = String.format(
                 getString(
@@ -276,6 +290,7 @@ class EnemyProfileActivity : AppCompatActivity() {
     }
 
     private fun openAchievement(data: UserAchievementResponse) {
+        //TODO переделать на parcel
         Intent(this@EnemyProfileActivity, AchievementActivity::class.java).apply {
             with(data) {
                 putExtra("reg", registrationFlg ?: false)
@@ -324,7 +339,7 @@ class EnemyProfileActivity : AppCompatActivity() {
 
     private fun gotoFullSizeAvatar(lng: Long) {
         Intent(this, ImageFullScreenActivity::class.java).apply {
-            putExtra(ImageFullScreenActivity.GLIDE_TYPE, "avatar")
+            putExtra(ImageFullScreenActivity.GLIDE_TYPE, ImageFullScreenActivity.GLIDE_TYPE_AVATAR)
             putExtra(ImageFullScreenActivity.ID, lng)
             startActivity(this)
         }
@@ -349,13 +364,13 @@ class EnemyProfileActivity : AppCompatActivity() {
         }
     }
 
-    private fun setPhotoGallery(data: List<IdentifierResponse>) {
+    private fun setPhotoGallery(data: List<ItemImg>) {
         with(binding) {
             if (data.isEmpty()) {
                 profileRecyclerView.isVisible = false
                 profileEmptyPhoto.isVisible = true
             } else {
-                recyclerViewImgGalleryAdapter.addItemsFromIds(data)
+                recyclerViewImgGalleryAdapter.submitList(data)
                 profileRecyclerView.isVisible = true
                 profileEmptyPhoto.isVisible = false
             }
@@ -400,11 +415,10 @@ class EnemyProfileActivity : AppCompatActivity() {
             profileRecyclerView.setLayoutManager(layoutManager)
             profileRecyclerView.setHasFixedSize(true)
 
-            recyclerViewImgGalleryAdapter = RecyclerViewImgGalleryAdapter(
-                mutableListOf(),
-                RecyclerViewImgGalleryAdapter.OnItemClickListener { view: View?, position: Int ->
+            recyclerViewImgGalleryAdapter =
+                RecyclerViewImgGalleryAdapter(listenerItem = RecyclerViewImgGalleryAdapter.OnItemClickListener { position: Int ->
                     viewModel.sendEvent(EnemyProfileEvent.Ui.GotoFullSizeGallery(position))
-                })
+                }, listenerItemMenu = RecyclerViewImgGalleryAdapter.OnItemClickDeleteListener {})
             profileRecyclerView.setAdapter(recyclerViewImgGalleryAdapter)
         }
     }
@@ -418,55 +432,10 @@ class EnemyProfileActivity : AppCompatActivity() {
         finish()
     }
 
-    private fun bindEvents() {
-        //Переход назад по нопке на телефоне
-        /*binding!!.profileControls.btnEnemyProfileMsg.setOnClickListener(View.OnClickListener { view: View? ->
-            if (prevActivity == "ChatCardActivity") {
-                finish()
-                return@setOnClickListener
-            }
-            chatApi!!.getChatContact(contactId).enqueue(object : Callback<ChatContactResponse?> {
-                override fun onResponse(
-                    call: Call<ChatContactResponse?>, response: Response<ChatContactResponse?>
-                ) {
-                    if (response.isSuccessful && response.body() != null) {
-                        runOnUiThread(Runnable {
-                            val chatCard =
-                                Intent(this@EnemyProfileActivity, ChatCardActivity::class.java)
-                            chatCard.putExtra("chatId", response.body()!!.id)
-                            chatCard.putExtra(
-                                "chatName",
-                                if (nickName != null && !nickName!!.isEmpty()) nickName else response.body()!!.name
-                            )
-                            chatCard.putExtra("prevActivity", TAG)
-                            startActivity(chatCard)
-                        })
-                    } else {
-                        runOnUiThread(Runnable {
-                            val chatCard =
-                                Intent(this@EnemyProfileActivity, ChatCardActivity::class.java)
-                            chatCard.putExtra("companionId", contactId)
-                            chatCard.putExtra("chatName", nickName)
-                            chatCard.putExtra("prevActivity", TAG)
-                            startActivity(chatCard)
-                        })
-                    }
-                }
-
-                override fun onFailure(call: Call<ChatContactResponse?>, throwable: Throwable) {
-                    Toast.makeText(
-                        this@EnemyProfileActivity, getText(R.string.httpall), Toast.LENGTH_SHORT
-                    ).show()
-                }
-            })
-        })*/
-
-
-    }
-
     private fun showUI(data: UserInfoApi, enableMsg: Boolean) {
         with(binding) {
-            textUserName.text = data.firstName
+            textUserName.text =
+                if (data.firstName.isNullOrEmpty()) data.nickName else data.firstName
             textUserNickName.text =
                 String.format(getString(R.string.dynamic_user_nick_name), data.nickName)
             enmProfileCountSubscriptions.text = String.format(
@@ -478,7 +447,7 @@ class EnemyProfileActivity : AppCompatActivity() {
                 getString(R.string.dynamic_count_subscribersD), data.countSubscribers ?: 0
             )
             enmProfileCountSubscribers.isVisible = true
-
+            //TODO расчет значение не на ui
             enmProfileCountRoute.text = String.format(
                 getString(R.string.dynamic_count_routeD),
                 data.countMyRoute ?: 0,
@@ -510,26 +479,23 @@ class EnemyProfileActivity : AppCompatActivity() {
 
             setRoFaImageView(
                 iconAchRegFa,
-                data.achievement?.let { if (data.achievement.registrationFlg) 1f else 0f }
-                    ?: run { 0f })
+                data.achievement?.let { if (it.registrationFlg) 1f else 0f } ?: run { 0f })
 
             setRoFaImageView(
                 iconAchSubsFa,
-                data.achievement?.let { if (data.achievement.subscription1Flg) 1f else 0f }
-                    ?: run { 0f })
+                data.achievement?.let { if (it.subscription1Flg) 1f else 0f } ?: run { 0f })
 
             setRoFaImageView(
                 iconAchRouteFa,
-                data.achievement?.let { if (data.achievement.routeCreate1Flg) 1f else 0f }
-                    ?: run { 0f })
+                data.achievement?.let { if (it.routeCreate1Flg) 1f else 0f } ?: run { 0f })
 
             setRoFaImageView(
                 iconAchKmFa,
-                data.achievement?.let { if (data.achievement.km1Flg) 1f else 0f } ?: run { 0f })
+                data.achievement?.let { if (it.km1Flg) 1f else 0f } ?: run { 0f })
 
             setRoFaImageView(
                 iconAchEventFa,
-                data.achievement?.let { if (data.achievement.event1Flg) 1f else 0f } ?: run { 0f })
+                data.achievement?.let { if (it.event1Flg) 1f else 0f } ?: run { 0f })
 
             //Обработка плашки дистанции
             fillDistanceLayout(data.distance)
@@ -574,7 +540,7 @@ class EnemyProfileActivity : AppCompatActivity() {
 
     @Suppress("MagicNumber")
     private fun fillDistanceLayout(_distance: Double?) {
-        var distance = _distance?.let { it.toInt() } ?: run { 0 }
+        var distance = _distance?.toInt() ?: run { 0 }
         with(binding) {
             distanceTextView.text = String.format(
                 getString(R.string.dynamic_profile_distance_1), distance
@@ -588,7 +554,7 @@ class EnemyProfileActivity : AppCompatActivity() {
                 "#FFCF53".toColorInt(),
                 Shader.TileMode.REPEAT
             )
-            distanceTextView.paint.setShader(shader)
+            distanceTextView.paint.shader = shader
             val DISTANCE_POINT_START = 200
             val DISTANCE_POINT_END = 800
             val repeat = distance.toDouble() / DISTANCE_POINT_END
@@ -631,6 +597,6 @@ class EnemyProfileActivity : AppCompatActivity() {
 
     companion object {
         @JvmField
-        val TAG: String = EnemyProfileActivity::class.java.getSimpleName()
+        val TAG: String = EnemyProfileActivity::class.java.simpleName
     }
 }

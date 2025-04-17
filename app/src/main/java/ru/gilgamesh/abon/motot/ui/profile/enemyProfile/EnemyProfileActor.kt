@@ -25,7 +25,7 @@ class EnemyProfileActor(
         is EnemyProfileCommand.LoadUserCoverImg -> {
             flow {
                 command.imgId?.let {
-                    emit(LoadUserImgGlide(it))
+                    emit(EnemyProfileEvent.Internal.LoadUserCoverImgGlide(it))
                 } ?: run {
                     emit(EnemyProfileEvent.Internal.LoadUserCoverImgRes)
                 }
