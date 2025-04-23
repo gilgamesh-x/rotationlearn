@@ -3,12 +3,6 @@ package ru.gilgamesh.abon.motot.ui.profile.enemyProfile
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import money.vivid.elmslie.core.store.Actor
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.GalleryIdsLoadingError
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.GalleryIdsLoadingSuccess
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.LoadUserImgGlide
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.LoadUserImgRes
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.ProfileLoadingError
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEvent.Internal.ProfileLoadingSuccess
 
 class EnemyProfileActor(
     private val enemyProfileRepository: EnemyProfileRepository
@@ -17,9 +11,9 @@ class EnemyProfileActor(
         is EnemyProfileCommand.LoadProfile -> enemyProfileRepository.loadEnemyProfileInfo(
             contactId = command.contactId, notificationId = command.notificationId
         ).mapEvents(
-            eventMapper = { ProfileLoadingSuccess(it) },
+            eventMapper = { EnemyProfileEvent.Internal.ProfileLoadingSuccess(it) },
             errorMapper = {
-                ProfileLoadingError(it)
+                EnemyProfileEvent.Internal.ProfileLoadingError(it)
             })
 
         is EnemyProfileCommand.LoadUserCoverImg -> {
@@ -35,12 +29,12 @@ class EnemyProfileActor(
         is EnemyProfileCommand.LoadUserImg -> {
             flow {
                 command.imgId?.let { img ->
-                    emit(LoadUserImgGlide(img))
+                    emit(EnemyProfileEvent.Internal.LoadUserImgGlide(img))
                 } ?: run {
                     command.sex?.let { sex ->
-                        emit(LoadUserImgRes(sex))
+                        emit(EnemyProfileEvent.Internal.LoadUserImgRes(sex))
                     } ?: run {
-                        emit(LoadUserImgRes("M"))
+                        emit(EnemyProfileEvent.Internal.LoadUserImgRes("M"))
                     }
                 }
             }
@@ -48,8 +42,8 @@ class EnemyProfileActor(
 
         is EnemyProfileCommand.LoadPhotoGallery -> enemyProfileRepository.loadImageList(contactId = command.contactId)
             .mapEvents(
-                eventMapper = { GalleryIdsLoadingSuccess(it) },
-                errorMapper = { GalleryIdsLoadingError(it) })
+                eventMapper = { EnemyProfileEvent.Internal.GalleryIdsLoadingSuccess(it) },
+                errorMapper = { EnemyProfileEvent.Internal.GalleryIdsLoadingError(it) })
 
         is EnemyProfileCommand.Subscribe -> enemyProfileRepository.invokeSubscribe(contactId = command.contactId)
             .mapEvents(

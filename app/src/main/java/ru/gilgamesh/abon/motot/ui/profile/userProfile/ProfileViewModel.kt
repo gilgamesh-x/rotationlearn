@@ -4,21 +4,25 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableSharedFlow
-import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
 import kotlinx.coroutines.launch
 import money.vivid.elmslie.core.store.ElmStore
+import ru.gilgamesh.abon.userprofile.domain.repository.UserRepository
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileActor
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileEffect
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileEvent
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileReducer
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileState
 import javax.inject.Inject
 
+//TODO кажется стоит переделать на shared view model для EditActivityProfile
 @HiltViewModel
 class ProfileViewModel @Inject constructor(
     private val userRepository: UserRepository
 ) : ViewModel() {
-    private val _state = MutableStateFlow(ProfileState())
-
     private val store = ElmStore(
-        initialState = _state.value,
+        initialState = ProfileState(),
         reducer = ProfileReducer(),
         actor = ProfileActor(userRepository)
     ).start()
@@ -32,27 +36,27 @@ class ProfileViewModel @Inject constructor(
     init {
         observeEvents()
         observeEffects()
-        observeState()
-        observeRepositoryState()
+        //observeState()
+        //observeRepositoryState()
     }
 
     /**
      * Следим за изменение
      */
-    private fun observeRepositoryState() {
+    /*private fun observeRepositoryState() {
         //TODO("Not yet implemented")
-    }
+    }*/
 
     /**
      * Изменения состояния из редусера
      */
-    private fun observeState() {
+    /*private fun observeState() {
         viewModelScope.launch {
             store.states.collect { newState ->
                 _state.value = newState
             }
         }
-    }
+    }*/
 
     /**
      * Отслеживаем эффекты из редусера

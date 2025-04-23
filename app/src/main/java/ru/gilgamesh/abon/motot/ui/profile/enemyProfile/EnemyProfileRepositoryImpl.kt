@@ -4,13 +4,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
+import ru.gilgamesh.abon.core.domain.repository.AuthRepository
 import ru.gilgamesh.abon.motot.data.api.EnemyProfileApi
-import ru.gilgamesh.abon.motot.data.db.dao.UserDao
-import ru.gilgamesh.abon.motot.data.models.UserInfo
-import ru.gilgamesh.abon.motot.domain.repositories.AuthRepository
 import ru.gilgamesh.abon.motot.payload.response.IdentifierResponse
 import ru.gilgamesh.abon.motot.payload.response.chat.ChatContactResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserInfoApi
+import ru.gilgamesh.abon.userprofile.data.db.dao.UserDao
+import ru.gilgamesh.abon.userprofile.data.model.UserInfo
 import javax.inject.Inject
 
 class EnemyProfileRepositoryImpl @Inject constructor(
@@ -46,7 +46,7 @@ class EnemyProfileRepositoryImpl @Inject constructor(
                         usr.countSubscriptions = usr.countSubscriptions?.let {
                             it + 1
                         } ?: 1
-                        userDao.insertUser(usr.toUser())
+                        userDao.insertUser(usr.toUserEntity())
                     }
                 }
                 emit(response.isSuccessful)
@@ -68,7 +68,7 @@ class EnemyProfileRepositoryImpl @Inject constructor(
                         usr.countSubscriptions = usr.countSubscriptions?.let {
                             it - 1
                         } ?: 0
-                        userDao.insertUser(usr.toUser())
+                        userDao.insertUser(usr.toUserEntity())
                     }
                 }
                 emit(response.isSuccessful)

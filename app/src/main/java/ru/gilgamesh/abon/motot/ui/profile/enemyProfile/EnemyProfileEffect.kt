@@ -3,7 +3,7 @@ package ru.gilgamesh.abon.motot.ui.profile.enemyProfile
 import ru.gilgamesh.abon.motot.payload.response.IdentifierResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserAchievementResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserInfoApi
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.ItemImg
 
 sealed class EnemyProfileEffect {
     object ShowError : EnemyProfileEffect()

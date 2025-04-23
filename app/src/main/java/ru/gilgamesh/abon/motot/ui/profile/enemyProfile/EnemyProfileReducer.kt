@@ -3,15 +3,12 @@ package ru.gilgamesh.abon.motot.ui.profile.enemyProfile
 import money.vivid.elmslie.core.store.StateReducer
 import ru.gilgamesh.abon.motot.payload.response.contact.UserAchievementResponse
 import ru.gilgamesh.abon.motot.ui.bottomNav.chat.ChatCardActivity
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadPhotoGallery
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadProfile
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadUserCoverImg
-import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileCommand.LoadUserImg
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEffect.LoadAvatarByGlide
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEffect.LoadAvatarBySex
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEffect.LoadCoverByGlide
 import ru.gilgamesh.abon.motot.ui.profile.enemyProfile.EnemyProfileEffect.ShowProfile
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.ItemImg
+import java.util.stream.Collectors
 
 class EnemyProfileReducer :
     StateReducer<EnemyProfileEvent, EnemyProfileState, EnemyProfileEffect, EnemyProfileCommand>() {
@@ -27,7 +24,7 @@ class EnemyProfileReducer :
                     copy(isLoadingProfile = true)
                 }
                 commands {
-                    +LoadProfile(
+                    +EnemyProfileCommand.LoadProfile(
                         contactId = state.contactId, notificationId = state.notificationId
                     )
                 }
@@ -38,7 +35,7 @@ class EnemyProfileReducer :
              */
             EnemyProfileEvent.Ui.LoadUserImg -> {
                 commands {
-                    +LoadUserImg(state.value?.miniAvatarId, state.value?.sex)
+                    +EnemyProfileCommand.LoadUserImg(state.value?.miniAvatarId, state.value?.sex)
                 }
             }
 
@@ -47,7 +44,7 @@ class EnemyProfileReducer :
              */
             EnemyProfileEvent.Ui.LoadUserCoverImg -> {
                 commands {
-                    +LoadUserCoverImg(state.value?.coverId)
+                    +EnemyProfileCommand.LoadUserCoverImg(state.value?.coverId)
                 }
             }
 
@@ -56,7 +53,7 @@ class EnemyProfileReducer :
              */
             EnemyProfileEvent.Ui.LoadPhotoGallery -> {
                 commands {
-                    +LoadPhotoGallery(state.value?.id!!)
+                    +EnemyProfileCommand.LoadPhotoGallery(state.value?.id!!)
                 }
             }
 
@@ -193,7 +190,11 @@ class EnemyProfileReducer :
                     copy(photoGalleryIds = event.listIds)
                 }
                 effects {
-                    +EnemyProfileEffect.LoadPhotoGallery(state.photoGalleryIds.stream().map { ItemImg(it.id) }.toList())
+                    +EnemyProfileEffect.LoadPhotoGallery(
+                        state.photoGalleryIds.stream().map { ItemImg(it.id) }.collect(
+                            Collectors.toList()
+                        )
+                    )
                 }
             }
 

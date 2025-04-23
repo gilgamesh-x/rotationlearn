@@ -8,9 +8,11 @@ import android.graphics.LinearGradient
 import android.graphics.Shader
 import android.location.LocationManager
 import android.os.Bundle
+import android.view.Gravity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -33,26 +35,28 @@ import kotlinx.coroutines.launch
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import ru.gilgamesh.abon.core.data.api.AuthApi
+import ru.gilgamesh.abon.core.data.model.response.IdentifierResponse
+import ru.gilgamesh.abon.core.data.model.response.MessageResponse
+import ru.gilgamesh.abon.core.glide.CustomGlideMethod
 import ru.gilgamesh.abon.motot.R
-import ru.gilgamesh.abon.motot.data.api.AuthApi
 import ru.gilgamesh.abon.motot.data.api.ContactImageApi
-import ru.gilgamesh.abon.motot.data.models.UserInfo
-import ru.gilgamesh.abon.motot.data.models.UserInfoAchievement
 import ru.gilgamesh.abon.motot.databinding.ActivityProfileBinding
 import ru.gilgamesh.abon.motot.imageGallery.ImageFullScreenActivity
 import ru.gilgamesh.abon.motot.imageGallery.ImageGalleryActivity
 import ru.gilgamesh.abon.motot.model.ActivityResult
 import ru.gilgamesh.abon.motot.model.App
-import ru.gilgamesh.abon.motot.model.CustomGlideApp
-import ru.gilgamesh.abon.motot.payload.response.IdentifierResponse
-import ru.gilgamesh.abon.motot.payload.response.MessageResponse
 import ru.gilgamesh.abon.motot.presentation.routeRecord.RouteRecordActivity
+import ru.gilgamesh.abon.motot.ui.LoginActivity
 import ru.gilgamesh.abon.motot.ui.profile.AchievementActivity
 import ru.gilgamesh.abon.motot.ui.profile.EditProfileActivity
 import ru.gilgamesh.abon.motot.ui.profile.ListSubscriptionsActivity
-import ru.gilgamesh.abon.motot.ui.profile.LoginActivity
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.RecyclerViewImgGalleryAdapter
+import ru.gilgamesh.abon.userprofile.data.model.UserInfo
+import ru.gilgamesh.abon.userprofile.data.model.UserInfoAchievement
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.ItemImg
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.RecyclerViewImgGalleryAdapter
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileEffect
+import ru.gilgamesh.abon.userprofile.presentation.profile.ProfileEvent
 import java.util.stream.Collectors
 import javax.inject.Inject
 
@@ -89,8 +93,9 @@ class ProfileActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        window.decorView.setSystemUiVisibility(
-            (View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN)
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
         )
 
         initialize()
@@ -109,8 +114,6 @@ class ProfileActivity : AppCompatActivity() {
                         }
 
                         is ProfileEffect.ShowProfile -> {
-                            viewModel.sendEvent(ProfileEvent.Ui.LoadUserImg)
-                            viewModel.sendEvent(ProfileEvent.Ui.LoadUserCoverImg)
                             viewModel.sendEvent(ProfileEvent.Ui.LoadPhotoGallery)
                             showUI(effect.data)
                         }
@@ -243,13 +246,13 @@ class ProfileActivity : AppCompatActivity() {
                 )
             })
 
-            menuBtn.setOnClickListener(View.OnClickListener { v: View? ->
+            menuBtn.setOnClickListener(View.OnClickListener { v: View ->
                 viewModel.sendEvent(
                     ProfileEvent.Ui.ClickShowMenu
                 )
             })
 
-            btnProfileAddPhoto.setOnClickListener ({
+            btnProfileAddPhoto.setOnClickListener({
                 viewModel.sendEvent(
                     ProfileEvent.Ui.ClickAddPhoto
                 )
@@ -288,9 +291,11 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun showMenu() {
-        val popup = PopupMenu(this, binding.menuBtn)
+        val popup = PopupMenu(
+            this@ProfileActivity, binding.menuBtn, Gravity.END
+        )
         popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem? ->
-            this.onOptionsItemSelected(
+            this@ProfileActivity.onOptionsItemSelected(
                 item!!
             )
         })
@@ -301,7 +306,10 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun gotoFullAvatar(imgId: Long) {
         Intent(this, ImageFullScreenActivity::class.java).apply {
-            putExtra(ImageFullScreenActivity.GLIDE_TYPE, ImageFullScreenActivity.GLIDE_TYPE_AVATAR)
+            putExtra(
+                ImageFullScreenActivity.GLIDE_TYPE,
+                ImageFullScreenActivity.GLIDE_TYPE_AVATAR
+            )
             putExtra(ImageFullScreenActivity.ID, imgId)
             startActivity(this)
         }
@@ -349,7 +357,7 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun loadUserAvatar(lng: Long) {
         with(binding) {
-            CustomGlideApp.getContactImageByIdByte(
+            CustomGlideMethod.getContactImageByIdByte(
                 imgProfileActAvatar.context, lng, imgProfileActAvatar
             )
         }
@@ -357,13 +365,13 @@ class ProfileActivity : AppCompatActivity() {
 
     private fun loadUserAvatarDefault(string: String) {
         with(binding) {
-            imgProfileActAvatar.setImageResource(CustomGlideApp.getDefaultAvatarBySexResId(string))
+            imgProfileActAvatar.setImageResource(CustomGlideMethod.getDefaultAvatarBySexResId(string))
         }
     }
 
     private fun loadUserCover(lng: Long) {
         with(binding) {
-            CustomGlideApp.getContactImageByIdByte(
+            CustomGlideMethod.getContactImageByIdByte(
                 imgProfileActCover.context, lng, imgProfileActCover
             )
         }

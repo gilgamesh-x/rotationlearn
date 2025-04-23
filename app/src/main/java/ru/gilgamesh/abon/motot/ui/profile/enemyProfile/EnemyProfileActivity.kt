@@ -8,8 +8,10 @@ import android.graphics.Shader
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
+import android.view.Gravity
 import android.view.MenuItem
 import android.view.View
+import android.view.WindowManager
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.Toast
@@ -26,13 +28,13 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.gson.Gson
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import ru.gilgamesh.abon.core.glide.CustomGlideMethod
 import ru.gilgamesh.abon.motot.R
 import ru.gilgamesh.abon.motot.databinding.ActivityEnemyProfileBinding
 import ru.gilgamesh.abon.motot.imageGallery.ImageFullScreenActivity
 import ru.gilgamesh.abon.motot.imageGallery.ImageGalleryActivity
 import ru.gilgamesh.abon.motot.model.ActivityResult
 import ru.gilgamesh.abon.motot.model.App
-import ru.gilgamesh.abon.motot.model.CustomGlideApp
 import ru.gilgamesh.abon.motot.payload.response.IdentifierResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserAchievementResponse
 import ru.gilgamesh.abon.motot.payload.response.contact.UserInfoApi
@@ -40,8 +42,8 @@ import ru.gilgamesh.abon.motot.ui.bottomNav.chat.ChatCardActivity
 import ru.gilgamesh.abon.motot.ui.complain.ComplainBottomSheetFragment
 import ru.gilgamesh.abon.motot.ui.complain.ComplainTypeEnum
 import ru.gilgamesh.abon.motot.ui.profile.AchievementActivity
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.ItemImg
-import ru.gilgamesh.abon.motot.ui.profile.RecyclerViewImgGallery.RecyclerViewImgGalleryAdapter
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.ItemImg
+import ru.gilgamesh.abon.userprofile.presentation.imageGallery.RecyclerViewImgGalleryAdapter
 import java.util.stream.Collectors
 
 @AndroidEntryPoint
@@ -82,9 +84,10 @@ class EnemyProfileActivity : AppCompatActivity() {
         // Скрыть ActionBar
         supportActionBar?.hide()
 
-        window.decorView.systemUiVisibility =
-            View.SYSTEM_UI_FLAG_LAYOUT_STABLE or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-
+        window.setFlags(
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+        )
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
@@ -320,7 +323,7 @@ class EnemyProfileActivity : AppCompatActivity() {
     }
 
     private fun showMenu() {
-        val popup = PopupMenu(this@EnemyProfileActivity, binding.menuBtn)
+        val popup = PopupMenu(this@EnemyProfileActivity, binding.menuBtn, Gravity.END)
         popup.setOnMenuItemClickListener(PopupMenu.OnMenuItemClickListener { item: MenuItem ->
             this@EnemyProfileActivity.onOptionsItemSelected(
                 item
@@ -379,7 +382,7 @@ class EnemyProfileActivity : AppCompatActivity() {
 
     private fun loadUserAvatar(lng: Long) {
         with(binding) {
-            CustomGlideApp.getContactImageByIdByte(
+            CustomGlideMethod.getContactImageByIdByte(
                 imgEnmProfileActAvatar.context, lng, imgEnmProfileActAvatar
             )
         }
@@ -387,13 +390,17 @@ class EnemyProfileActivity : AppCompatActivity() {
 
     private fun loadUserAvatarDefault(string: String) {
         with(binding) {
-            imgEnmProfileActAvatar.setImageResource(CustomGlideApp.getDefaultAvatarBySexResId(string))
+            imgEnmProfileActAvatar.setImageResource(
+                CustomGlideMethod.getDefaultAvatarBySexResId(
+                    string
+                )
+            )
         }
     }
 
     private fun loadUserCover(lng: Long) {
         with(binding) {
-            CustomGlideApp.getContactImageByIdByte(
+            CustomGlideMethod.getContactImageByIdByte(
                 imgEnmProfileActCover.context, lng, imgEnmProfileActCover
             )
         }
